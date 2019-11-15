@@ -7,6 +7,8 @@ import house_collision from './assets/maps/house/House_collision.csv';
 import house_house1 from './assets/maps/house/House_house1.csv';
 import house_house2 from './assets/maps/house/House_house2.csv';
 import house_house3 from './assets/maps/house/House_house3.csv';
+import house_house2_above from './assets/maps/house/House_house2Above.csv';
+import house_house3_above from './assets/maps/house/House_house3Above.csv';
 
 import house1_tiles from './assets/tilesets/house1.png';
 import house2_tiles from './assets/tilesets/house2.png';
@@ -25,6 +27,8 @@ export default function() {
   this.load.tilemapCSV("house-house1", house_house1);
   this.load.tilemapCSV("house-house2", house_house2);
   this.load.tilemapCSV("house-house3", house_house3);
+  this.load.tilemapCSV("house-house2-above", house_house2_above);
+  this.load.tilemapCSV("house-house3-above", house_house3_above);
 
   this.load.image("house1-tiles", house1_tiles);
   this.load.image("house2-tiles", house2_tiles);

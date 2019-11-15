@@ -12,15 +12,17 @@ export default function() {
   };
 
   // Level 1 (house)
-
-  // house2above
-  // house3above
-
-  const house_house2 = createTileMap({
-    mapKey: "house-house2",
-    tileKey: "house2-tiles",
+  const house_house1 = createTileMap({
+    mapKey: "house-house1",
+    tileKey: "house1-tiles",
     tileWidth: 32,
     tileHeight: 32
+  });
+  const house_house3 = createTileMap({
+    mapKey: "house-house3",
+    tileKey: "house3-tiles",
+    tileWidth: 16,
+    tileHeight: 16
   });
   const house_city = createTileMap({
     mapKey: "house-city",
@@ -29,23 +31,29 @@ export default function() {
     tileHeight: 16,
     tileSpacing: 1
   });
-  const house_house3 = createTileMap({
-    mapKey: "house-house3",
+  const house_house2 = createTileMap({
+    mapKey: "house-house2",
+    tileKey: "house2-tiles",
+    tileWidth: 32,
+    tileHeight: 32
+  });
+  this.player = this.physics.add.sprite(500, 500, "human");
+  const house_house2_above = createTileMap({
+    mapKey: "house-house2-above",
+    tileKey: "house2-tiles",
+    tileWidth: 32,
+    tileHeight: 32
+  });
+  const house_house3_above = createTileMap({
+    mapKey: "house-house3-above",
     tileKey: "house3-tiles",
     tileWidth: 16,
     tileHeight: 16
   });
-  const house_house1 = createTileMap({
-    mapKey: "house-house1",
-    tileKey: "house1-tiles",
-    tileWidth: 32,
-    tileHeight: 32
-  });
 
 
-  // Player
-  this.player = this.physics.add.sprite(500, 500, "human");
   this.cursors = this.input.keyboard.createCursorKeys();
+  this.bottle = this.physics.add.sprite(700, 700, "bottle");
 
   // Collisions
   const map_house_collision = this.make.tilemap({
@@ -62,12 +70,8 @@ export default function() {
   });
   this.physics.add.collider(this.player, map_house_collision);
 
-  this.player = this.physics.add.sprite(500, 500, "human");
-  this.bottle = this.physics.add.sprite(700, 700, "bottle")
-
   this.cursors = this.input.keyboard.createCursorKeys();
   this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-  this.physics.add.collider(this.player, layer);
 
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
