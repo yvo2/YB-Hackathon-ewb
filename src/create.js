@@ -12,7 +12,7 @@ export default function() {
   };
 
   this.speaking = false;
-
+  this.lightOn = true;
 
   // Level 1 (house)
   const house_house1 = createTileMap({
@@ -45,8 +45,10 @@ export default function() {
   });
 
   this.bottle = this.physics.add.sprite(860, 560, "bottle");
+  this.light = this.physics.add.sprite(640, 460, "light");
   this.player = this.physics.add.sprite(600, 550, "human");
   this.player.setFrame(1)
+
   const house_house2_above = createTileMap({
     mapKey: "house-house2-above",
     tileKey: "house2-tiles",
@@ -85,33 +87,19 @@ export default function() {
 
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
-  this.anims.create({
-    key: 'left',
-    frames: this.anims.generateFrameNumbers('human', { frames: [5,4,3,4] }),
-    frameRate: 8,
-    repeat: 0
-  });
-
-  this.anims.create({
-      key: 'right',
-      frames: this.anims.generateFrameNumbers('human', { frames: [6,7,8,7] }),
+  const createAnim = (key, frames) => {
+    this.anims.create({
+      key,
+      frames: this.anims.generateFrameNumbers('human', { frames }),
       frameRate: 8,
       repeat: 0
-  });
+    })
+  };
 
-  this.anims.create({
-    key: 'up',
-    frames: this.anims.generateFrameNumbers('human', { frames: [9,10,11,10] }),
-    frameRate: 8,
-    repeat: 0
-  });
-
-  this.anims.create({
-    key: 'down',
-    frames: this.anims.generateFrameNumbers('human', { frames: [0,1,2,1] }),
-    frameRate: 8,
-    repeat: 0
-  });
+  createAnim("left", [5,4,3,4]);
+  createAnim("right", [6,7,8,7]);
+  createAnim("up", [9,10,11,10]);
+  createAnim("down", [0,1,2,1]);
 
   this.input.keyboard.on('keydown', () => {
     //ACTION
@@ -120,11 +108,23 @@ export default function() {
         this.speaking.destroy();
         this.content.destroy();
         this.speaking = false;
-      }
-
-      if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
-        this.bottle.destroy();
-        createSpeechBubble(this.player.x, this.player.y, 'You took The bottle', this);
+      } else {
+        if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
+          this.bottle.destroy();
+          createSpeechBubble(this.player.x, this.player.y, 'You took The bottle', this);
+        }
+  
+        if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {
+          if(this.light.frame.name == 1) {
+            this.light.setFrame(0);
+            this.lightOn = true;
+            createSpeechBubble(this.player.x, this.player.y, 'You turned the light on.', this);
+          } else {
+            this.light.setFrame(1);
+            this.lightOn = false;
+            createSpeechBubble(this.player.x, this.player.y, 'You turned the light off.', this);
+          }
+        }
       }
     }
   });
