@@ -5,7 +5,6 @@ import create from './create';
 import update from './update';
 
 // This is the entry point of your game.
-
 const scale = 0.6;
 const width = window.innerWidth * scale;
 const height = window.innerHeight * scale;
