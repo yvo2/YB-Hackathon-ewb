@@ -42,7 +42,7 @@ export default function() {
     x: -16,
     y: -16
   });
-  this.player = this.physics.add.sprite(500, 500, "human");
+  this.player = this.physics.add.sprite(600, 550, "human");
   const house_house2_above = createTileMap({
     mapKey: "house-house2-above",
     tileKey: "house2-tiles",
@@ -67,20 +67,16 @@ export default function() {
     tileWidth: 16,
     tileHeight: 16
   });
-  const map_house_collision_tileset = map_house_collision.addTilesetImage("city-tiles","house2-tiles", 32, 32);
-  const map_house_collision_layer = map_house_collision.createStaticLayer(0, map_house_collision_tileset, -48, -48);
+  const map_house_collision_layer = map_house_collision.createStaticLayer(0, "", -48);
   map_house_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_house_collision_layer);
 
-  this.cursors = this.input.keyboard.createCursorKeys();
-  this.bottle = this.physics.add.sprite(700, 700, "bottle");
-
-  const debugGraphics = this.add.graphics().setAlpha(0.75);
+  /* const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-  });
+  }); */
 
   this.cursors = this.input.keyboard.createCursorKeys();
   this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
