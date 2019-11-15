@@ -1,31 +1,28 @@
-import cityTestMap from './assets/maps/test-city1.csv';
-import rogueLikeCity from './assets/tilesets/roguelikeCity_magenta.png';
+import cityTestMap from '../assets/maps/test-city1.csv';
+import rogueLikeCity from '../assets/tilesets/roguelikeCity_magenta.png';
 
 // House - Level 1
-import house_city from './assets/maps/house/House_city.csv';
-import house_collision from './assets/maps/house/House_collision.csv';
-import house_house1 from './assets/maps/house/House_house1.csv';
-import house_house2 from './assets/maps/house/House_house2.csv';
-import house_house2_above from './assets/maps/house/House_house2Above.csv';
-import house_house3 from './assets/maps/house/House_house3.csv';
-import house_house3_above from './assets/maps/house/House_house3Above.csv';
-import house_trees from './assets/maps/house/House_trees.csv';
-import house_trees_layer2 from './assets/maps/house/House_treesLayer2.csv';
-import house_trees_layer3 from './assets/maps/house/House_treesLayer3.csv';
+import house_city from '../assets/maps/house/House_city.csv';
+import house_collision from '../assets/maps/house/House_collision.csv';
+import house_house1 from '../assets/maps/house/House_house1.csv';
+import house_house2 from '../assets/maps/house/House_house2.csv';
+import house_house2_above from '../assets/maps/house/House_house2Above.csv';
+import house_house3 from '../assets/maps/house/House_house3.csv';
+import house_house3_above from '../assets/maps/house/House_house3Above.csv';
+import house_trees from '../assets/maps/house/House_trees.csv';
+import house_trees_layer2 from '../assets/maps/house/House_treesLayer2.csv';
+import house_trees_layer3 from '../assets/maps/house/House_treesLayer3.csv';
 
-import house1_tiles from './assets/tilesets/house1.png';
-import house2_tiles from './assets/tilesets/house2.png';
-import house3_tiles from './assets/tilesets/house3.png';
-import house_trees_tiles from './assets/tilesets/trees.png';
+import house1_tiles from '../assets/tilesets/house1.png';
+import house2_tiles from '../assets/tilesets/house2.png';
+import house3_tiles from '../assets/tilesets/house3.png';
+import house_trees_tiles from '../assets/tilesets/trees.png';
 
-import human from './assets/sprites/human/SMB_Base_M_Tone08_cut.png';
-import bottle from './assets/sprites/water.png';
-import light from './assets/sprites/light.png';
+import human from '../assets/sprites/Human/SMB_Base_M_Tone08_cut.png';
+import bottle from '../assets/sprites/water.png';
+import light from '../assets/sprites/light.png';
 
-import music_mp3 from './assets/music/bg_music.mp3';
-import music_ogg from './assets/music/bg_music.ogg';
-
-import bell from './assets/icons/bell.png';
+import bell from '../assets/icons/bell.png';
 
 export default function() {
   this.load.image("city-tiles", rogueLikeCity);
@@ -74,6 +71,4 @@ export default function() {
     startFrame: 0,
     endFrame: 1
   });
-
-  this.load.audio('music', [music_mp3, music_ogg]);
 }
