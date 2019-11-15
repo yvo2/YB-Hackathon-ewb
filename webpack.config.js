@@ -11,6 +11,10 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.json\.map$/,
+        use: 'file-loader',
+      },
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
