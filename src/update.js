@@ -31,7 +31,7 @@ export default function() {
 
   //ACTION
   if(this.space.isDown) {
-    if(this.physics.collide(this.bottle, this.player)) {
+    if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
       this.bottle.destroy();
     }
   }
