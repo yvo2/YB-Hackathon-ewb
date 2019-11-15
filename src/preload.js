@@ -16,7 +16,7 @@ import house3_tiles from './assets/tilesets/house3.png';
 
 import human from './assets/sprites/human/SMB_Base_M_Tone08_cut.png';
 import bottle from './assets/sprites/water.png';
-
+import light from './assets/sprites/light.png';
 
 export default function() {
   this.load.image("city-tiles", rogueLikeCity);
@@ -39,6 +39,13 @@ export default function() {
     frameHeight: 32,
     startFrame: 0,
     endFrame: 1
+  });
+
+  this.load.spritesheet('light', light, {
+    frameWidth: 32,
+    frameHeight: 31,
+    startFrame: 0,
+    endFrame: 2
   });
 
   this.load.spritesheet('human', human, {
