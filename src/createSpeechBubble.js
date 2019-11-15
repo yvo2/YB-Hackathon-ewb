@@ -6,7 +6,7 @@ export default function createSpeechBubble (x, y, quote, game)
   let bubblePadding = 0;
   let arrowHeight = bubbleHeight / 4;
 
-  let bubble = game.add.graphics({ x: x, y: y + 100});
+  let bubble = game.add.graphics({ x: x -150, y: y + 100});
 
   //  Bubble shadow
   bubble.fillStyle(0x222222, 0.5);
