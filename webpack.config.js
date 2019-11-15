@@ -41,7 +41,7 @@ const config = {
       WEBGL_RENDERER: true,
     }),
     new HtmlWebpackPlugin({
-      favicon: 'src/img/favicon.png',
+      /* favicon: 'src/img/favicon.png', */
       template: 'src/index.html',
     }),
   ],
