@@ -5,7 +5,7 @@ export default function() {
       tileWidth: mapTileWidth || 15,
       tileHeight: mapTileHeight || 15
     });
-    const tileset = map.addTilesetImage(tileKey,tileKey, tileWidth, tileHeight, tileMargin || 0, tileSpacing || 0);
+    const tileset = map.addTilesetImage(tileKey,tileKey, tileWidth || 16, tileHeight || 16, tileMargin || 0, tileSpacing || 0);
     const layer = map.createStaticLayer(0, tileset, x || 0, y || 0);
 
     return { map, tileset, layer };
@@ -24,15 +24,11 @@ export default function() {
   });
   const house_house3 = createTileMap({
     mapKey: "house-house3",
-    tileKey: "house3-tiles",
-    tileWidth: 16,
-    tileHeight: 16
+    tileKey: "house3-tiles"
   });
   const house_city = createTileMap({
     mapKey: "house-city",
     tileKey: "city-tiles",
-    tileWidth: 16,
-    tileHeight: 16,
     tileSpacing: 1
   });
   const house_house2 = createTileMap({
@@ -44,10 +40,8 @@ export default function() {
     y: -16
   });
 
-  this.bottle = this.physics.add.sprite(860, 560, "bottle");
-  this.light = this.physics.add.sprite(640, 460, "light");
+  // Player comes here to fit in
   this.player = this.physics.add.sprite(600, 550, "human");
-  this.player.setFrame(1)
 
   const house_house2_above = createTileMap({
     mapKey: "house-house2-above",
@@ -58,11 +52,24 @@ export default function() {
   });
   const house_house3_above = createTileMap({
     mapKey: "house-house3-above",
-    tileKey: "house3-tiles",
-    tileWidth: 16,
-    tileHeight: 16
+    tileKey: "house3-tiles"
+  });
+  const house_trees3 = createTileMap({
+    mapKey: "house-trees3",
+    tileKey: "house-trees-tiles"
+  });
+  const house_trees2 = createTileMap({
+    mapKey: "house-trees2",
+    tileKey: "house-trees-tiles"
+  });
+  const house_trees = createTileMap({
+    mapKey: "house-trees",
+    tileKey: "house-trees-tiles"
   });
 
+  this.bottle = this.physics.add.sprite(860, 560, "bottle");
+  this.light = this.physics.add.sprite(640, 460, "light");
+  this.player.setFrame(1);
 
   this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -76,12 +83,12 @@ export default function() {
   map_house_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_house_collision_layer);
 
-  /* const debugGraphics = this.add.graphics().setAlpha(0.75);
+  const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-  }); */
+  });
 
   this.cursors = this.input.keyboard.createCursorKeys();
 
