@@ -36,8 +36,36 @@ export default function() {
   });
 
 
-  this.player = this.physics.add.sprite(20, 20, "mummy");
+  this.player = this.physics.add.sprite(20, 20, "human");
   this.cursors = this.input.keyboard.createCursorKeys();
   this.physics.add.collider(this.player, layer);
+
+  this.anims.create({
+    key: 'left',
+    frames: this.anims.generateFrameNumbers('human', { start: 3, end: 5 }),
+    frameRate: 10,
+    repeat: 0
+  });
+
+  this.anims.create({
+      key: 'right',
+      frames: this.anims.generateFrameNumbers('human', { start: 6, end: 8 }),
+      frameRate: 10,
+      repeat: 0
+  });
+
+  this.anims.create({
+    key: 'up',
+    frames: this.anims.generateFrameNumbers('human', { start: 9, end: 11 }),
+    frameRate: 10,
+    repeat: 0
+  });
+
+  this.anims.create({
+    key: 'down',
+    frames: this.anims.generateFrameNumbers('human', { start: 0, end: 2 }),
+    frameRate: 10,
+    repeat: 0
+  });
 
 }
