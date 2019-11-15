@@ -55,24 +55,26 @@ export default function() {
     tileHeight: 16
   });
 
+  // Collisions
+  const map_house_collision = this.make.tilemap({
+    key: 'house-collision',
+    tileWidth: 16,
+    tileHeight: 16
+  });
+  const map_house_collision_tileset = map_house_collision.addTilesetImage("city-tiles","house2-tiles", 32, 32);
+  const map_house_collision_layer = map_house_collision.createStaticLayer(0, map_house_collision_tileset, -48, -48);
+  map_house_collision.setCollisionBetween(0, 100);
+  this.physics.add.collider(this.player, map_house_collision_layer);
 
   this.cursors = this.input.keyboard.createCursorKeys();
   this.bottle = this.physics.add.sprite(700, 700, "bottle");
 
-  // Collisions
-  const map_house_collision = this.make.tilemap({
-    key: 'house-collision',
-    tileWidth: 15,
-    tileHeight: 15
-  });
-  const map_house_collision_layer = map_house_collision.createStaticLayer(0, null);
   const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   });
-  this.physics.add.collider(this.player, map_house_collision);
 
   this.cursors = this.input.keyboard.createCursorKeys();
   this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
