@@ -11,6 +11,8 @@ export default function() {
     return { map, tileset, layer };
   };
 
+  this.speaking = false;
+
   // Level 1 (house)
   const house_house1 = createTileMap({
     mapKey: "house-house1",
