@@ -1,45 +1,66 @@
 export default function() {
-  // When loading from an array, make sure to specify the tileWidth and tileHeight
-  // const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16, tileSpacing: 1 });
-  /* const layers = [];
-  house.layers.forEach(layerData => {
-    console.log(layerData);
+  const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing }) => {
     const map = this.make.tilemap({
-      data: layerData.data,
-      tileWidth: 16,
-      tileHeight: 16,
-      width: 16,
-      height: 16
+      key: mapKey,
+      tileWidth: 15,
+      tileHeight: 15
     });
-    const tiles = map.addTilesetImage("House-ts-0", "House-ts-0", 16, 16, 0, 1);
-    const layer = map.createStaticLayer("House-ts-0", tiles, layerData.x, layerData.y);
-    layer.setCollisionByProperty({ collides: true });
-  }); */
+    const tileset = map.addTilesetImage(tileKey,tileKey, tileWidth, tileHeight, tileMargin || 0, tileSpacing || 0);
+    const layer = map.createStaticLayer(0, tileset);
 
-  const map = this.make.tilemap({
-    key: 'house-background',
+    return { map, tileset, layer };
+  };
+
+  // Level 1 (house)
+
+  // house2above
+  // house3above
+
+  const house_house2 = createTileMap({
+    mapKey: "house-house2",
+    tileKey: "house2-tiles",
+    tileWidth: 32,
+    tileHeight: 32
+  });
+  const house_city = createTileMap({
+    mapKey: "house-city",
+    tileKey: "city-tiles",
+    tileWidth: 16,
+    tileHeight: 16,
+    tileSpacing: 1
+  });
+  const house_house3 = createTileMap({
+    mapKey: "house-house3",
+    tileKey: "house3-tiles",
+    tileWidth: 16,
+    tileHeight: 16
+  });
+  const house_house1 = createTileMap({
+    mapKey: "house-house1",
+    tileKey: "house1-tiles",
+    tileWidth: 32,
+    tileHeight: 32
+  });
+
+
+  // Player
+  this.player = this.physics.add.sprite(500, 500, "human");
+  this.cursors = this.input.keyboard.createCursorKeys();
+
+  // Collisions
+  const map_house_collision = this.make.tilemap({
+    key: 'house-collision',
     tileWidth: 15,
     tileHeight: 15
   });
-  console.log(map);
-  const tileset = map.addTilesetImage('city-tiles','city-tiles', 16, 16, 0 , 1);
-  const layer = map.createStaticLayer(0, tileset);
-
-
-
-  //show hitboxes
+  const map_house_collision_layer = map_house_collision.createStaticLayer(0, null);
   const debugGraphics = this.add.graphics().setAlpha(0.75);
-  layer.renderDebug(debugGraphics, {
+  map_house_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   });
-
-
-  this.player = this.physics.add.sprite(500, 500, "human");
-  this.cursors = this.input.keyboard.createCursorKeys();
-  this.physics.add.collider(this.player, layer);
-
+  this.physics.add.collider(this.player, map_house_collision);
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
   this.anims.create({
