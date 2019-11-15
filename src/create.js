@@ -40,6 +40,8 @@ export default function() {
   this.cursors = this.input.keyboard.createCursorKeys();
   this.physics.add.collider(this.player, layer);
 
+  this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
+
   this.anims.create({
     key: 'left',
     frames: this.anims.generateFrameNumbers('human', { start: 3, end: 5 }),
