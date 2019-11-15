@@ -85,33 +85,19 @@ export default function() {
 
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
-  this.anims.create({
-    key: 'left',
-    frames: this.anims.generateFrameNumbers('human', { frames: [5,4,3,4] }),
-    frameRate: 8,
-    repeat: 0
-  });
-
-  this.anims.create({
-      key: 'right',
-      frames: this.anims.generateFrameNumbers('human', { frames: [6,7,8,7] }),
+  const createAnim = (key, frames) => {
+    this.anims.create({
+      key,
+      frames: this.anims.generateFrameNumbers('human', { frames }),
       frameRate: 8,
       repeat: 0
-  });
+    })
+  };
 
-  this.anims.create({
-    key: 'up',
-    frames: this.anims.generateFrameNumbers('human', { frames: [9,10,11,10] }),
-    frameRate: 8,
-    repeat: 0
-  });
-
-  this.anims.create({
-    key: 'down',
-    frames: this.anims.generateFrameNumbers('human', { frames: [0,1,2,1] }),
-    frameRate: 8,
-    repeat: 0
-  });
+  createAnim("left", [5,4,3,4]);
+  createAnim("right", [6,7,8,7]);
+  createAnim("up", [9,10,11,10]);
+  createAnim("down", [0,1,2,1]);
 
   this.input.keyboard.on('keydown', () => {
     //ACTION
