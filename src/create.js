@@ -16,7 +16,7 @@ export default function() {
 
   // When loading from an array, make sure to specify the tileWidth and tileHeight
   const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16, tileMargin: 1 });
-  const tiles = map.addTilesetImage("city-tiles");
+  const tiles = map.addTilesetImage("mario-tiles");
   const layer = map.createStaticLayer(0, tiles, 0, 0);
   layer.setCollisionBetween(12, 44);
   layer.setCollisionByProperty({ collides: true });
@@ -29,4 +29,7 @@ export default function() {
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   });
+
+  Window.game.player = this.physics.add.sprite(20, 20, "atlas", "mario-tiles");
+  Window.cursors = Window.game.input.keyboard.createCursorKeys();
 }
