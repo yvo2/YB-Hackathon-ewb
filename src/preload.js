@@ -1,4 +1,3 @@
-import rogueLikeCity from './assets/tilesets/roguelikeCity_magenta.png';
 import cityTestMap from './assets/maps/test-city1.csv';
 import rogueLikeCity from './assets/tilesets/roguelikeCity_magenta.png'
 import mario_tiles from './assets/tilesets/mario_tiles.png'
@@ -9,5 +8,10 @@ export default function() {
   this.load.image("city-tiles", rogueLikeCity);
   this.load.tilemapCSV("city-map", cityTestMap);
   this.load.image("mario-tiles", mario_tiles);
-  this.load.spritesheet('mummy', char, 37, 45, 18);
+  this.load.spritesheet('mummy', char, {
+    frameWidth: 37,
+    frameHeight: 45,
+    startFrame: 0,
+    endFrame: 18
+  });
 }
