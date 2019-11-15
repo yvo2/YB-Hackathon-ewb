@@ -6,8 +6,9 @@ import update from './update';
 
 // This is the entry point of your game.
 
-const width = 600;
-const height = 600;
+const scale = 0.6;
+const width = window.innerWidth * scale;
+const height = window.innerHeight * scale;
 
 const config = {
   width,
