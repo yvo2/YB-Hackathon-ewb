@@ -1,26 +1,30 @@
 import 'phaser';
-import pkg from 'phaser/package.json';
-import introImage from 'img/study.png';
+
+import preload from './preload';
+import create from './create';
+import update from './update';
 
 // This is the entry point of your game.
 
 const width = 800;
-const height = 600;
+const height = 800;
 
 const config = {
   width,
   height,
   type: Phaser.AUTO,
-  scene: { preload, create },
+  scene: {
+    preload: preload,
+    create: create,
+    update: update
+  }
 };
 
 const game = new Phaser.Game(config);
 
-function preload() {
-  this.load.image('study', introImage);
-}
+// game.state.add('Boot', boot);
 
-function create() {
+/* function create() {
   const centerX = width / 2;
   const centerY = height / 2;
   const welcomeMessage = `Welcome to Phaser ${pkg.version}`;
@@ -30,4 +34,6 @@ function create() {
   this.add
     .text(centerX, centerY * 0.8, welcomeMessage, { font: "bold 19px Arial", fill: "#fff" })
     .setOrigin(0.5, 0.5);
-}
+} */
+
+Window.game = game;
