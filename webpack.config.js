@@ -36,6 +36,10 @@ const config = {
         test: /\.(vert|frag)$/,
         use: 'raw-loader',
       },
+      {
+        test: /\.(mp3|ogg)$/,
+        use: 'file-loader',
+      },
     ],
   },
   stats: 'minimal',
