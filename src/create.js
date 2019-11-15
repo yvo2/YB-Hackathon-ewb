@@ -46,6 +46,7 @@ export default function() {
 
   this.bottle = this.physics.add.sprite(860, 560, "bottle");
   this.player = this.physics.add.sprite(600, 550, "human");
+  this.player.setFrame(1)
   const house_house2_above = createTileMap({
     mapKey: "house-house2-above",
     tileKey: "house2-tiles",
