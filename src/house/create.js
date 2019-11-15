@@ -135,12 +135,6 @@ export default function() {
       }
     }
   });
-
-  const music = this.sound.add('music');
-  music.play({
-      volume: 0.25,
-      loop: true
-  });
 }
 
 //from https://phaser.io/examples/v3/view/game-objects/text/static/speech-bubble
