@@ -116,6 +116,8 @@ export default function() {
     //ACTION
     if(event.code == "Space") {
       if(this.speaking) {
+        this.speaking.destroy();
+        this.content.destroy();
         this.speaking = false;
       }
 
@@ -152,11 +154,11 @@ function createSpeechBubble (x, y, quote, game)
     bubble.strokeRoundedRect(0, 0, bubbleWidth, bubbleHeight, 7);
     bubble.fillRoundedRect(0, 0, bubbleWidth, bubbleHeight, 7);
 
-    var content = game.add.text(0, 0, quote, { fontFamily: 'Arial', fontSize: 15, color: '#FFFFFF', align: 'center', wordWrap: { width: bubbleWidth - (bubblePadding * 2) } });
+    game.content = game.add.text(0, 0, quote, { fontFamily: 'Arial', fontSize: 15, color: '#FFFFFF', align: 'center', wordWrap: { width: bubbleWidth - (bubblePadding * 2) } });
 
-    var b = content.getBounds();
+    var b = game.content.getBounds();
 
-    content.setPosition(bubble.x + (bubbleWidth / 2) - (b.width / 2), bubble.y + (bubbleHeight / 2) - (b.height / 2));
+    game.content.setPosition(bubble.x + (bubbleWidth / 2) - (b.width / 2), bubble.y + (bubbleHeight / 2) - (b.height / 2));
     game.speaking = bubble;
 }
 
