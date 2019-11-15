@@ -28,6 +28,14 @@ export default function() {
     }
   }
 
+
+  //ACTION
+  if(this.space.isDown) {
+    if(this.physics.collide(this.bottle, this.player)) {
+      this.bottle.destroy();
+    }
+  }
+
   // Normalize and scale the velocity so that player can't move faster along a diagonal
   this.player.body.velocity.normalize().scale(100);
 }

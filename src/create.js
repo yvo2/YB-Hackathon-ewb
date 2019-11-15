@@ -37,7 +37,10 @@ export default function() {
 
 
   this.player = this.physics.add.sprite(500, 500, "human");
+  this.bottle = this.physics.add.sprite(700, 700, "bottle")
+
   this.cursors = this.input.keyboard.createCursorKeys();
+	this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
   this.physics.add.collider(this.player, layer);
 
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);

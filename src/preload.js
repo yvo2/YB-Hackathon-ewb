@@ -6,6 +6,7 @@ import house_background from './assets/maps/House_background.csv'
 import house_objects from './assets/maps/House_objects.csv'
 
 import human from './assets/sprites/human/SMB_Base_M_Tone08.png'
+import bottle from './assets/sprites/water.png'
 
 
 export default function() {
@@ -14,6 +15,13 @@ export default function() {
 
   this.load.tilemapCSV("house-background", house_background);
   this.load.tilemapCSV("house-objects", house_objects);
+
+  this.load.spritesheet('bottle', bottle, {
+    frameWidth: 16,
+    frameHeight: 32,
+    startFrame: 0,
+    endFrame: 1
+  });
 
   this.load.spritesheet('human', human, {
     frameWidth: 55,
