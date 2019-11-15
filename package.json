@@ -1,0 +1,36 @@
+{
+  "name": "phaser-starter",
+  "version": "3.0.1",
+  "description": "Minimal starter project to get a Phaser game environment up and running with ease.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliverbenns/phaser-starter.git"
+  },
+  "author": {
+    "name": "Oliver Benns",
+    "email": "info@oliverbenns.com",
+    "url": "https://oliverbenns.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oliverbenns/phaser-starter/issues"
+  },
+  "homepage": "https://github.com/oliverbenns/phaser-starter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "file-loader": "^3.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "rm -rf dist && webpack --mode production"
+  },
+  "dependencies": {
+    "phaser": "^3.16.1"
+  }
+}
