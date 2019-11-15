@@ -18,8 +18,8 @@ export default function() {
 
   const map = this.make.tilemap({
     key: 'house-background',
-    tileWidth: 16,
-    tileHeight: 16
+    tileWidth: 15,
+    tileHeight: 15
   });
   console.log(map);
   const tileset = map.addTilesetImage('city-tiles','city-tiles', 16, 16, 0 , 1);
