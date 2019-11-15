@@ -31,7 +31,7 @@ export default function() {
   });
 
   
-  Window.game.player = this.physics.add.sprite(20, 20, "atlas", "mario-tiles");
+  Window.game.player = this.physics.add.sprite(20, 20, "mummy");
   Window.cursors = this.input.keyboard.createCursorKeys();
   this.physics.add.collider(Window.game.player, layer);
 
