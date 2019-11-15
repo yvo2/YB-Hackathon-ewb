@@ -11,6 +11,8 @@ export default function() {
     return { map, tileset, layer };
   };
 
+  this.speaking = false;
+
   // Level 1 (house)
   const house_house1 = createTileMap({
     mapKey: "house-house1",
@@ -54,6 +56,10 @@ export default function() {
     tileWidth: 16,
     tileHeight: 16
   });
+
+
+  this.cursors = this.input.keyboard.createCursorKeys();
+  this.bottle = this.physics.add.sprite(860, 560, "bottle");
 
   // Collisions
   const map_house_collision = this.make.tilemap({
