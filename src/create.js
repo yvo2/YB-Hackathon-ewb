@@ -1,5 +1,3 @@
-import house from './assets/maps/House.json';
-
 export default function() {
   // When loading from an array, make sure to specify the tileWidth and tileHeight
   // const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16, tileSpacing: 1 });
@@ -18,10 +16,14 @@ export default function() {
     layer.setCollisionByProperty({ collides: true });
   }); */
 
-  const map = this.make.tilemap('level1');
+  const map = this.make.tilemap({
+    key: 'house-background',
+    tileWidth: 16,
+    tileHeight: 16
+  });
   console.log(map);
-  const tileset = map.addTilesetImage('house1','house1', 16, 16, 0 , 1);
-  const layer = map.createStaticLayer('background', tileset);
+  const tileset = map.addTilesetImage('city-tiles','city-tiles', 16, 16, 0 , 1);
+  const layer = map.createStaticLayer(0, tileset);
 
 
 
@@ -34,7 +36,7 @@ export default function() {
   });
 
 
-  this.player = this.physics.add.sprite(20, 20, "human");
+  this.player = this.physics.add.sprite(500, 500, "human");
   this.cursors = this.input.keyboard.createCursorKeys();
   this.physics.add.collider(this.player, layer);
 
