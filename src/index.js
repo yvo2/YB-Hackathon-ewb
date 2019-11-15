@@ -6,12 +6,16 @@ import update from './update';
 
 // This is the entry point of your game.
 
-const width = 800;
-const height = 800;
+const width = 400;
+const height = 400;
 
 const config = {
   width,
   height,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.Center
+  },
   type: Phaser.AUTO,
   scene: {
     preload: preload,

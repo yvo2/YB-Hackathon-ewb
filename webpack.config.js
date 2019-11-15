@@ -25,6 +25,10 @@ const config = {
         use: 'file-loader',
       },
       {
+        test: /\.csv$/,
+        use: 'file-loader',
+      },
+      {
         test: /\.(vert|frag)$/,
         use: 'raw-loader',
       },
