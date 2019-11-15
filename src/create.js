@@ -1,7 +1,7 @@
 export default function() {
   // Load a map from a 2D array of tile indices
   const level = [
-    [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 ],
+    [  0,   1,   2,   3,   4,   5,   6,   7,   8,   0,   0 ],
     [  0,   1,   2,   3,   0,   0,   0,   1,   2,   3,   0 ],
     [  0,   5,   6,   7,   0,   0,   0,   5,   6,   7,   0 ],
     [  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0 ],
@@ -15,7 +15,7 @@ export default function() {
   ];
 
   // When loading from an array, make sure to specify the tileWidth and tileHeight
-  const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16 });
-  const tiles = map.addTilesetImage("city-tiles");
+  const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16, tileSpacing: 1 });
+  const tiles = map.addTilesetImage("mario-tiles");
   const layer = map.createStaticLayer(0, tiles, 0, 0);
 }
