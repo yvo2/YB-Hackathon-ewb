@@ -1,12 +1,12 @@
 export default function() {
-  const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing }) => {
+  const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
     const map = this.make.tilemap({
       key: mapKey,
-      tileWidth: 15,
-      tileHeight: 15
+      tileWidth: mapTileWidth || 16,
+      tileHeight: mapTileHeight || 16
     });
     const tileset = map.addTilesetImage(tileKey,tileKey, tileWidth, tileHeight, tileMargin || 0, tileSpacing || 0);
-    const layer = map.createStaticLayer(0, tileset);
+    const layer = map.createStaticLayer(0, tileset, x || 0, y || 0);
 
     return { map, tileset, layer };
   };
@@ -16,7 +16,9 @@ export default function() {
     mapKey: "house-house1",
     tileKey: "house1-tiles",
     tileWidth: 32,
-    tileHeight: 32
+    tileHeight: 32,
+    mapTileHeight: 32,
+    mapTileWidth: 32
   });
   const house_house3 = createTileMap({
     mapKey: "house-house3",
@@ -35,14 +37,17 @@ export default function() {
     mapKey: "house-house2",
     tileKey: "house2-tiles",
     tileWidth: 32,
-    tileHeight: 32
+    tileHeight: 32,
+    x: -16,
+    y: -16
   });
   this.player = this.physics.add.sprite(500, 500, "human");
   const house_house2_above = createTileMap({
     mapKey: "house-house2-above",
     tileKey: "house2-tiles",
     tileWidth: 32,
-    tileHeight: 32
+    tileHeight: 32,
+    y: -16
   });
   const house_house3_above = createTileMap({
     mapKey: "house-house3-above",
