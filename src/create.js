@@ -44,28 +44,28 @@ export default function() {
 
   this.anims.create({
     key: 'left',
-    frames: this.anims.generateFrameNumbers('human', { start: 3, end: 5 }),
+    frames: this.anims.generateFrameNumbers('human', { frames: [5,4,3,4] }),
     frameRate: 10,
     repeat: 0
   });
 
   this.anims.create({
       key: 'right',
-      frames: this.anims.generateFrameNumbers('human', { start: 6, end: 8 }),
+      frames: this.anims.generateFrameNumbers('human', { frames: [6,7,8,7] }),
       frameRate: 10,
       repeat: 0
   });
 
   this.anims.create({
     key: 'up',
-    frames: this.anims.generateFrameNumbers('human', { start: 9, end: 11 }),
+    frames: this.anims.generateFrameNumbers('human', { frames: [9,10,11,10] }),
     frameRate: 10,
     repeat: 0
   });
 
   this.anims.create({
     key: 'down',
-    frames: this.anims.generateFrameNumbers('human', { start: 0, end: 2 }),
+    frames: this.anims.generateFrameNumbers('human', { frames: [0,1,2,1] }),
     frameRate: 10,
     repeat: 0
   });
