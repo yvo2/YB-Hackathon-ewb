@@ -59,7 +59,7 @@ export default function() {
 
 
   this.cursors = this.input.keyboard.createCursorKeys();
-  this.bottle = this.physics.add.sprite(700, 700, "bottle");
+  this.bottle = this.physics.add.sprite(860, 560, "bottle");
 
   // Collisions
   const map_house_collision = this.make.tilemap({
