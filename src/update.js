@@ -17,5 +17,5 @@ export default () => {
   }
 
   // Normalize and scale the velocity so that player can't move faster along a diagonal
-  Window.game.player.body.velocity.normalize().scale(speed);
+  Window.game.player.body.velocity.normalize().scale(1);
 }

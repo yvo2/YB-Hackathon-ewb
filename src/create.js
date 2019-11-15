@@ -30,6 +30,9 @@ export default function() {
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   });
 
+  
   Window.game.player = this.physics.add.sprite(20, 20, "atlas", "mario-tiles");
-  Window.cursors = Window.game.input.keyboard.createCursorKeys();
+  Window.cursors = this.input.keyboard.createCursorKeys();
+  this.physics.add.collider(Window.game.player, layer);
+
 }
