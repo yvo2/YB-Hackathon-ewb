@@ -13,6 +13,7 @@ import house2_tiles from './assets/tilesets/house2.png';
 import house3_tiles from './assets/tilesets/house3.png';
 
 import human from './assets/sprites/human/SMB_Base_M_Tone08.png';
+import bottle from './assets/sprites/water.png';
 
 
 export default function() {
@@ -28,6 +29,13 @@ export default function() {
   this.load.image("house1-tiles", house1_tiles);
   this.load.image("house2-tiles", house2_tiles);
   this.load.image("house3-tiles", house3_tiles);
+
+  this.load.spritesheet('bottle', bottle, {
+    frameWidth: 16,
+    frameHeight: 32,
+    startFrame: 0,
+    endFrame: 1
+  });
 
   this.load.spritesheet('human', human, {
     frameWidth: 55,

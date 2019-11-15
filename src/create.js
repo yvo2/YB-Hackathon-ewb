@@ -61,33 +61,41 @@ export default function() {
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
   });
   this.physics.add.collider(this.player, map_house_collision);
+
+  this.player = this.physics.add.sprite(500, 500, "human");
+  this.bottle = this.physics.add.sprite(700, 700, "bottle")
+
+  this.cursors = this.input.keyboard.createCursorKeys();
+  this.space = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+  this.physics.add.collider(this.player, layer);
+
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
   this.anims.create({
     key: 'left',
     frames: this.anims.generateFrameNumbers('human', { frames: [5,4,3,4] }),
-    frameRate: 10,
+    frameRate: 8,
     repeat: 0
   });
 
   this.anims.create({
       key: 'right',
       frames: this.anims.generateFrameNumbers('human', { frames: [6,7,8,7] }),
-      frameRate: 10,
+      frameRate: 8,
       repeat: 0
   });
 
   this.anims.create({
     key: 'up',
     frames: this.anims.generateFrameNumbers('human', { frames: [9,10,11,10] }),
-    frameRate: 10,
+    frameRate: 8,
     repeat: 0
   });
 
   this.anims.create({
     key: 'down',
     frames: this.anims.generateFrameNumbers('human', { frames: [0,1,2,1] }),
-    frameRate: 10,
+    frameRate: 8,
     repeat: 0
   });
 
