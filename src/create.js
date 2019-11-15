@@ -109,4 +109,7 @@ export default function() {
     repeat: 0
   });
 
+  const music = this.sound.add('music');
+  music.play();
+
 }

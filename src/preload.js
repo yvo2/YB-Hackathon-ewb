@@ -17,6 +17,8 @@ import house3_tiles from './assets/tilesets/house3.png';
 import human from './assets/sprites/human/SMB_Base_M_Tone08.png';
 import bottle from './assets/sprites/water.png';
 
+import music_mp3 from './assets/music/bg_music.mp3'
+import music_ogg from './assets/music/bg_music.ogg'
 
 export default function() {
   this.load.image("city-tiles", rogueLikeCity);
@@ -47,4 +49,6 @@ export default function() {
     startFrame: 0,
     endFrame: 12
   });
+
+  this.load.audio('music', [music_mp3, music_ogg]);
 }
