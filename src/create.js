@@ -2,8 +2,8 @@ export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
     const map = this.make.tilemap({
       key: mapKey,
-      tileWidth: mapTileWidth || 16,
-      tileHeight: mapTileHeight || 16
+      tileWidth: mapTileWidth || 15,
+      tileHeight: mapTileHeight || 15
     });
     const tileset = map.addTilesetImage(tileKey,tileKey, tileWidth, tileHeight, tileMargin || 0, tileSpacing || 0);
     const layer = map.createStaticLayer(0, tileset, x || 0, y || 0);
@@ -17,8 +17,7 @@ export default function() {
     tileKey: "house1-tiles",
     tileWidth: 32,
     tileHeight: 32,
-    mapTileHeight: 32,
-    mapTileWidth: 32
+    y: -16
   });
   const house_house3 = createTileMap({
     mapKey: "house-house3",
