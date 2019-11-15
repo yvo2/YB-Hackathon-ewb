@@ -21,6 +21,12 @@ const config = {
     preload: preload,
     create: create,
     update: update
+  },
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 0 } // Top down game, so no gravity
+    }
   }
 };
 

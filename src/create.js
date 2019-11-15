@@ -23,4 +23,21 @@ export default function() {
   });
   const tiles = map.addTilesetImage("city-tiles", null, 16, 16, 0, 1);
   const layer = map.createStaticLayer(0, tiles, 0, 0);
+  layer.setCollisionBetween(12, 44);
+  layer.setCollisionByProperty({ collides: true });
+
+
+  //show hitboxes
+  const debugGraphics = this.add.graphics().setAlpha(0.75);
+  layer.renderDebug(debugGraphics, {
+    tileColor: null, // Color of non-colliding tiles
+    collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
+    faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
+  });
+
+
+  Window.game.player = this.physics.add.sprite(20, 20, "mummy");
+  Window.cursors = this.input.keyboard.createCursorKeys();
+  this.physics.add.collider(Window.game.player, layer);
+
 }
