@@ -17,8 +17,10 @@ import house3_tiles from './assets/tilesets/house3.png';
 import human from './assets/sprites/human/SMB_Base_M_Tone08_cut.png';
 import bottle from './assets/sprites/water.png';
 
-import music_mp3 from './assets/music/bg_music.mp3'
-import music_ogg from './assets/music/bg_music.ogg'
+import music_mp3 from './assets/music/bg_music.mp3';
+import music_ogg from './assets/music/bg_music.ogg';
+
+import bell from './assets/icons/bell.png';
 
 export default function() {
   this.load.image("city-tiles", rogueLikeCity);
@@ -48,6 +50,13 @@ export default function() {
     frameHeight: 55,
     startFrame: 0,
     endFrame: 12
+  });
+
+  this.load.spritesheet('bell', bell, {
+    frameWidth: 448,
+    frameHeight: 512,
+    startFrame: 0,
+    endFrame: 1
   });
 
   this.load.audio('music', [music_mp3, music_ogg]);
