@@ -15,7 +15,7 @@ export default function() {
   ];
 
   // When loading from an array, make sure to specify the tileWidth and tileHeight
-  const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16 });
+  const map = this.make.tilemap({ data: level, tileWidth: 16, tileHeight: 16, tileMargin: 1 });
   const tiles = map.addTilesetImage("city-tiles");
   const layer = map.createStaticLayer(0, tiles, 0, 0);
 }
