@@ -14,7 +14,7 @@ import house1_tiles from './assets/tilesets/house1.png';
 import house2_tiles from './assets/tilesets/house2.png';
 import house3_tiles from './assets/tilesets/house3.png';
 
-import human from './assets/sprites/human/SMB_Base_M_Tone08.png';
+import human from './assets/sprites/human/SMB_Base_M_Tone08_cut.png';
 import bottle from './assets/sprites/water.png';
 
 import music_mp3 from './assets/music/bg_music.mp3'
@@ -44,7 +44,7 @@ export default function() {
   });
 
   this.load.spritesheet('human', human, {
-    frameWidth: 55,
+    frameWidth: 25,
     frameHeight: 55,
     startFrame: 0,
     endFrame: 12
