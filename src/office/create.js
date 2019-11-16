@@ -68,6 +68,8 @@ export default function() {
     tileKey: "office-tiles"
   });
 
+  this.dispenser = this.physics.add.sprite(1055, 480, "dispenser");
+
   // Player comes here to fit in
   this.player = this.physics.add.sprite(670, 385, "human");
 
@@ -131,13 +133,23 @@ export default function() {
       if(this.speaking) {
         this.speaking.destroy();
         this.content.destroy();
+        this.hint.destroy();
         this.speaking = false;
       } else {
-        /* if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
-          this.bottle.destroy();
-          createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
-        } */
-  
+        if(this.physics.collide(this.dispenser, this.player) && [9,10,11].includes(this.player.frame.name)) {
+          if(this.game.summary.hasBottle) {
+            if(this.refill) {
+              createSpeechBubble(this.player.x, this.player.y, 'Your bottle is already filled', this);
+            } else {
+              createSpeechBubble(this.player.x, this.player.y, 'You refilled your bottle', this);
+              this.game.score += 40;
+              this.refill = true;
+            }
+          } else {
+            createSpeechBubble(this.player.x, this.player.y, 'You don\'t have a bottle to refill', this);
+          }
+        }
+
         if(this.physics.collide(this.foodgiver, this.player) && [9,10,11].includes(this.player.frame.name) && !this.game.summary.hasPickedMenu) {
           isChoosingMenu = true;
           createSpeechBubble(this.player.x, this.player.y, 'What would you like to eat? Press: \n[1] to get Zürigschnätzlets (CH)\n[2] Rumpsteak (ARG) with Pommes or \n[3] vegetable casserolle (Bio, BE)', this);
@@ -145,7 +157,6 @@ export default function() {
       }
     }
 
-    console.log(event.code);
     if ((event.code === "Digit1" || event.code === "Digit2" || event.code === "Digit3") && isChoosingMenu) {
       this.speaking.destroy();
       this.content.destroy();

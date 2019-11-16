@@ -20,6 +20,8 @@ import food_giver from '../assets/sprites/Human/food_giver.png';
 import angry_man from '../assets/sprites/Human/angry_man.png';
 import chef from '../assets/sprites/Human/chef.png';
 
+import dispenser from '../assets/sprites/water_dispenser.png';
+
 export default function() {
   this.load.tilemapCSV("office-collision", office_collision);
   this.load.tilemapCSV("office-house2", office_house2);
@@ -56,6 +58,13 @@ export default function() {
     frameHeight: 55,
     startFrame: 0,
     endFrame: 12
+  });
+  
+  this.load.spritesheet('dispenser', dispenser, {
+    frameWidth: 19,
+    frameHeight: 31,
+    startFrame: 0,
+    endFrame: 1
   });
 
   this.load.image("food-giver", food_giver);

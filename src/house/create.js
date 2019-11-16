@@ -128,6 +128,7 @@ export default function() {
       } else {
         if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
           this.bottle.destroy();
+          this.game.summary.hasBottle = true;
           createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
           this.game.score += 20;
         }

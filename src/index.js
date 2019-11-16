@@ -38,5 +38,6 @@ game.summary = {
   wentByFoot: false,
   hasTurnedOffLight: false,
   hasPickedMenu: false,
-  menuChoice: ''
+  menuChoice: '',
+  hasBottle: false
 };
