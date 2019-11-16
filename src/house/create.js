@@ -91,12 +91,12 @@ export default function() {
   map_house_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_house_collision_layer);
 
-  const debugGraphics = this.add.graphics().setAlpha(0.75);
+  /* const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-  });
+  }); */
 
   this.cursors = this.input.keyboard.createCursorKeys();
 
