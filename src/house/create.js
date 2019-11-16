@@ -142,11 +142,11 @@ export default function() {
         }
 
         if(this.physics.collide(this.car, this.player)) {
-          goToOffice(this)
+          goToOffice(this, 20)
         }
 
         if(this.physics.collide(this.velo, this.player)) {
-          goToOffice(this)
+          goToOffice(this, 60)
         }
       }
     }
