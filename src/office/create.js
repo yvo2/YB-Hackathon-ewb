@@ -138,6 +138,10 @@ export default function() {
           this.game.score += 40;
           this.refil = true;
         }
+  
+        if(this.physics.collide(this.foodgiver, this.player) && [9,10,11].includes(this.player.frame.name)) {
+          createSpeechBubble(this.player.x, this.player.y, 'What would you like to eat? Press: \n[1] to get Zürigschnätzlets (CH)\n[2] Rumpsteak (ARG) with Pommes or \n[3] vegetable casserolle (Bio, BE)');
+        }
       }
     }
   });
