@@ -23,9 +23,12 @@ export default function createSpeechBubble (x, y, quote, game)
   bubble.fillRoundedRect(0, 0, bubbleWidth, bubbleHeight, 7);
 
   game.content = game.add.text(0, 0, quote, { fontFamily: 'Arial', fontSize: 15, color: '#FFFFFF', align: 'center', wordWrap: { width: bubbleWidth - (bubblePadding * 2) } });
+  game.hint = game.add.text(0, 20, "[space]", { fontFamily: 'Arial', fontSize: 10, color: '#FFFFFF', align: 'right', wordWrap: { width: bubbleWidth - (bubblePadding * 2) } });
 
   let b = game.content.getBounds();
 
   game.content.setPosition(bubble.x + (bubbleWidth / 2) - (b.width / 2), bubble.y + (bubbleHeight / 2) - (b.height / 2));
+  game.hint.setPosition(bubble.x + bubbleWidth - 40, bubble.y + (bubbleHeight) - 20);
+ 
   game.speaking = bubble;
 }
