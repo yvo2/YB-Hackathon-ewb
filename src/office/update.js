@@ -1,3 +1,6 @@
+let foodGiverPosition = 1250;
+let foodGiverState = true; // true: -> false: <-
+
 export default function() {
   // Stop any previous movement from the last frame
   this.player.body.setVelocity(0);
@@ -32,5 +35,19 @@ export default function() {
 
   // Normalize and scale the velocity so that player can't move faster along a diagonal
   this.player.body.velocity.normalize().scale(100);
+
+  if (foodGiverState) {
+    foodGiverPosition += 0.1;
+  } else {
+    foodGiverPosition -= 0.1;
+  }
+  this.foodgiver.x = foodGiverPosition;
+
+  if (foodGiverPosition > 1300) {
+    foodGiverState = false;
+  }
+  if (foodGiverPosition < 1250) {
+    foodGiverState = true;
+  }
 }
 

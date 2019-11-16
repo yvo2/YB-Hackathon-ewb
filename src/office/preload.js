@@ -39,4 +39,6 @@ export default function() {
     startFrame: 0,
     endFrame: 12
   });
+
+  this.load.image("food-giver", food_giver);
 }
