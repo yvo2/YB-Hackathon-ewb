@@ -122,6 +122,7 @@ export default function() {
       if(this.speaking) {
         this.speaking.destroy();
         this.content.destroy();
+        this.hint.destroy();
         this.speaking = false;
       } else {
         if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
