@@ -56,23 +56,23 @@ export default function() {
   if (angryManState) {
     angryManPosition += 2;
     if (!this.angryman.anims.isPlaying) {
-      this.angryman.anims.play('down');
+      this.angryman.anims.play('down-angry');
     }
   } else {
     angryManPosition -= 2;
     if (!this.angryman.anims.isPlaying) {
-      this.angryman.anims.play('up');
+      this.angryman.anims.play('up-angry');
     }
   }
   this.angryman.y = angryManPosition;
 
   if (angryManPosition > 500) {
     angryManState = false;
-    this.angryman.anims.play('up');
+    this.angryman.anims.play('up-angry');
   }
   if (angryManPosition < 385) {
     angryManState = true;
-    this.angryman.anims.play('down');
+    this.angryman.anims.play('down-angry');
   }
 }
 
