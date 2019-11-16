@@ -79,7 +79,7 @@ export default function() {
     tileHeight: 16
   });
   const map_office_collision_layer = map_office_collision.createStaticLayer(0, "", 0, 0);
-  map_office_collision.setCollisionBetween(0, 100);
+  // map_office_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_office_collision_layer);
 
   /* const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -99,7 +99,7 @@ export default function() {
       frames: this.anims.generateFrameNumbers('human', { frames }),
       frameRate: 8,
       repeat: 0
-    })
+    });
   };
 
   createAnim("left", [5,4,3,4]);
@@ -136,4 +136,5 @@ export default function() {
   }); */
 
   // NPC
+  this.angryman = this.add.sprite(1525, 385, "angry-man");
 }
