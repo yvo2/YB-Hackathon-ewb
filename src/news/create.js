@@ -35,6 +35,11 @@ export default function() {
     if(event.code === "Space") {
       this.scene.add('office', office, true)
       this.scene.remove('news')
+
+      Window.game.scene.scenes[0].pointB.setVisible(true)
+      Window.game.scene.scenes[0].questB.setVisible(true)
+      Window.game.scene.scenes[0].objectiveView.setVisible(true)
+      Window.game.scene.scenes[0].scoreView.setVisible(true)
     }
   });
 }

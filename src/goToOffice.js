@@ -11,5 +11,10 @@ export default function goToOffice(game, points) {
         game.switchSceneDone = true;
         game.scene.add('news', news, true)
         game.scene.remove('house')
+
+        Window.game.scene.scenes[0].pointB.setVisible(false)
+        Window.game.scene.scenes[0].questB.setVisible(false)
+        Window.game.scene.scenes[0].objectiveView.setVisible(false)
+        Window.game.scene.scenes[0].scoreView.setVisible(false)
     } 
 }
