@@ -15,6 +15,7 @@ export default function() {
 
   // State
   this.speaking = false;
+  this.game.objective = "Order a Menu"
 
   // Food giver is behind everything
   this.foodgiver = this.add.image(1250, 350, 'food-giver');

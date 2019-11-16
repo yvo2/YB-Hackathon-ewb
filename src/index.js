@@ -27,5 +27,6 @@ const config = {
 
 const game = new Phaser.Game(config);
 game.score = 0;
+game.objective = "None";
 // Add scene
 Window.game = game;
