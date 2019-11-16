@@ -1,6 +1,9 @@
 export default function () {
   this.game.scene.remove("UIScene");
 
+  const ewbImage = this.add.image(this.game.scale.width - 100, 50, "ewb-logo");
+  ewbImage.setScale(0.25);
+
   const overviewTitle = this.add.text(this.game.scale.width / 2, 20, "Overview", {font: "30px Arial", fill: "#FFFFFF"});
   overviewTitle.setOrigin(0.5);
 
@@ -70,7 +73,7 @@ export default function () {
     badThings2.setOrigin(0.5);
   }
 
-  const otherInfoText = "Thank you for playing!\nWe hope that you can also take some things you learned here to the real life and act more ecological!\nYou may also be interested in the \"Ökostrom\" offering of the EWB!\nPlease check out the EWB Website: https://ewb.ch";
+  const otherInfoText = "Thank you for playing!\nWe hope that you can also take some things you learned here to the real life and act more ecological!\nYou may also be interested in the \"Ökostrom\" offering of the EWB!\nPlease check out the EWB Website: https://www.ewb.ch/privatkunden/angebot/strom-beziehen/ewb-oeko-strom/detail";
   const finishInfo = this.add.text(this.game.scale.width / 2, 500, otherInfoText, {font: "20px Arial", fill: "#FFFFFF", align: "center"});
   finishInfo.setOrigin(0.5);
 }

@@ -55,12 +55,12 @@ const config = {
     new HtmlWebpackPlugin({
       /* favicon: 'src/img/favicon.png', */
       template: 'src/index.html',
-    }),
+    })
   ],
   devServer: {
     port: 8080,
     stats: 'minimal',
   },
-}
+};
 
 module.exports = config
