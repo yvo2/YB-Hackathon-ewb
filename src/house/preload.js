@@ -22,7 +22,6 @@ import human from '../assets/sprites/Human/SMB_Base_M_Tone08_cut.png';
 import bottle from '../assets/sprites/water.png';
 import light from '../assets/sprites/light.png';
 import car from '../assets/sprites/car.png';
-import bell from '../assets/icons/bell.png';
 
 export default function() {
   this.load.image("city-tiles", rogueLikeCity);
@@ -63,13 +62,6 @@ export default function() {
     frameHeight: 55,
     startFrame: 0,
     endFrame: 12
-  });
-
-  this.load.spritesheet('bell', bell, {
-    frameWidth: 448,
-    frameHeight: 512,
-    startFrame: 0,
-    endFrame: 2
   });
 
   this.load.spritesheet('car', car, {
