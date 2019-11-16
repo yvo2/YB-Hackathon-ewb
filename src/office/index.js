@@ -5,5 +5,7 @@ import update from './update';
 export default {
   create,
   preload,
-  update
+  update,
+  active: true,
+  key: 'office'
 }
