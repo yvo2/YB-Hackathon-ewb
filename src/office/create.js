@@ -107,6 +107,9 @@ export default function() {
   createAnim("up", [9,10,11,10]);
   createAnim("down", [0,1,2,1]);
 
+  
+  this.scene.bringToTop('UIScene');
+
   /* this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {

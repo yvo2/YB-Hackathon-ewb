@@ -5,5 +5,7 @@ import update from './update';
 export default {
   create,
   preload,
-  update
+  update,
+  key: "UIScene",
+  active: true
 }
