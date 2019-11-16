@@ -74,6 +74,9 @@ export default function() {
     tileKey: "house3-tiles"
   });
 
+
+
+  this.dispenser = this.physics.add.sprite(1000, 480, "dispenser");
   this.player.setFrame(1);
 
   this.cursors = this.input.keyboard.createCursorKeys();
