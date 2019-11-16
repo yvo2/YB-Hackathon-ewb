@@ -8,6 +8,7 @@ import office_house4 from '../assets/maps/office/office_house4.csv';
 import office_office from '../assets/maps/office/office_office.csv';
 import office_office2 from '../assets/maps/office/office_officeLayer2.csv';
 import office_office3 from '../assets/maps/office/office_officeLayer3.csv';
+import office_office4 from '../assets/maps/office/office_officeLayer4.csv';
 
 import house2_tiles from '../assets/tilesets/house2.png';
 import house3_tiles from '../assets/tilesets/house3.png';
@@ -29,6 +30,7 @@ export default function() {
   this.load.tilemapCSV("office-office", office_office);
   this.load.tilemapCSV("office-office2", office_office2);
   this.load.tilemapCSV("office-office3", office_office3);
+  this.load.tilemapCSV("office-office4", office_office4);
 
   this.load.image("house2-tiles", house2_tiles);
   this.load.image("house3-tiles", house3_tiles);
