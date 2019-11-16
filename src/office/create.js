@@ -16,6 +16,9 @@ export default function() {
   // State
   this.speaking = false;
 
+  // Food giver is behind everything
+  this.foodgiver = this.add.image(1250, 350, 'food-giver');
+
   // Level 2 (office)
   const office_house4 = createTileMap({
     mapKey: "office-house4",
@@ -131,4 +134,6 @@ export default function() {
       }
     }
   }); */
+
+  // NPC
 }
