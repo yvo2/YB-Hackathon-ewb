@@ -1,4 +1,4 @@
-import office from './office';
+import news from './news';
 
 export default function goToOffice(game, points) {
     if(!game.switchSceneDone) {
@@ -9,7 +9,7 @@ export default function goToOffice(game, points) {
         } 
 
         game.switchSceneDone = true;
-        game.scene.add('office', office, true);
+        game.scene.add('news', news, true)
         game.scene.remove('house')
     } 
 }
