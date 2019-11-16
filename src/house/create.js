@@ -16,6 +16,7 @@ export default function() {
 
   this.speaking = false;
   this.lightOn = true;
+  this.game.objective = "Go to work (->)"
 
   // Level 1 (house)
   const house_house1 = createTileMap({

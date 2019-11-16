@@ -4,7 +4,6 @@ export default function createSpeechBubble (x, y, quote, game)
   let bubbleWidth = 300;
   let bubbleHeight = 100;
   let bubblePadding = 0;
-  let arrowHeight = bubbleHeight / 4;
 
   let bubble = game.add.graphics({ x: x -150, y: y + 100});
 
