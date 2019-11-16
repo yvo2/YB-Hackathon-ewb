@@ -51,14 +51,26 @@ export default function () {
   }
 
   if (goodThings.length > 0) {
-    const goodThings1 = this.add.text(this.game.scale.width / 2, 210, descriptionText, {font: "16px Arial", fill: "green", align: "center"});
-    descriptionLabel.setOrigin(0.5);
+    const goodThings1 = this.add.text(this.game.scale.width / 2, 230, goodThings[0], {font: "16px Arial", fill: "green", align: "center"});
+    goodThings1.setOrigin(0.5);
   }
 
   if (goodThings.length > 1) {
-    const goodThings1 = this.add.text(this.game.scale.width / 2, 240, descriptionText, {font: "16px Arial", fill: "green", align: "center"});
-    descriptionLabel.setOrigin(0.5);
+    const goodThings2 = this.add.text(this.game.scale.width / 2, 280, goodThings[1], {font: "16px Arial", fill: "green", align: "center"});
+    goodThings2.setOrigin(0.5);
   }
 
+  if (badThings.length > 0) {
+    const badThings1 = this.add.text(this.game.scale.width / 2, 330, badThings[0], {font: "16px Arial", fill: "red", align: "center"});
+    badThings1.setOrigin(0.5);
+  }
 
+  if (badThings.length > 1) {
+    const badThings2 = this.add.text(this.game.scale.width / 2, 380, badThings[1], {font: "16px Arial", fill: "red", align: "center"});
+    badThings2.setOrigin(0.5);
+  }
+
+  const otherInfoText = "Thank you for playing!\nWe hope that you can also take some things you learned here to the real life and act more ecological!\nYou may also be interested in the \"Ökostrom\" offering of the EWB!\nPlease check out the EWB Website: https://ewb.ch";
+  const finishInfo = this.add.text(this.game.scale.width / 2, 500, otherInfoText, {font: "20px Arial", fill: "#FFFFFF", align: "center"});
+  finishInfo.setOrigin(0.5);
 }

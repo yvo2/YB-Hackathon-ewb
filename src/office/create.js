@@ -1,5 +1,5 @@
 import createSpeechBubble from '../createSpeechBubble';
-import news2 from '../'
+import news2 from '../news2';
 
 let isChoosingMenu = false;
 
@@ -145,6 +145,7 @@ export default function() {
               createSpeechBubble(this.player.x, this.player.y, 'You refilled your bottle', this);
               this.game.score += 40;
               this.refill = true;
+              this.game.summary.hasFilledWater = true;
             }
           } else {
             createSpeechBubble(this.player.x, this.player.y, 'You don\'t have a bottle to refill', this);
@@ -182,7 +183,8 @@ export default function() {
         this.game.score += 100;
       }
 
-      this.game.scene.add(news2)
+      this.scene.add('news2', news2, true);
+      this.scene.remove('office');
     }
   });
 
