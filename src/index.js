@@ -36,5 +36,7 @@ game.summary = {
   hasTakenCar: false,
   hasTakenBike: false,
   wentByFoot: false,
-  hasTurnedOffLight: false
+  hasTurnedOffLight: false,
+  hasPickedMenu: false,
+  menuChoice: ''
 };

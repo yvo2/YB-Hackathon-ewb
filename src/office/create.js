@@ -1,5 +1,7 @@
 import createSpeechBubble from '../createSpeechBubble';
 
+let isChoosingMenu = false;
+
 export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
     const map = this.make.tilemap({
@@ -18,7 +20,7 @@ export default function() {
   this.game.objective = "Order a Menu"
 
   // Food giver is behind everything
-  this.foodgiver = this.add.image(1250, 350, 'food-giver');
+  this.foodgiver = this.physics.add.image(1250, 350, 'food-giver');
 
   // Level 2 (office)
   const office_house4 = createTileMap({
@@ -136,10 +138,25 @@ export default function() {
           createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
         } */
   
-        if(this.physics.collide(this.foodgiver, this.player) && [9,10,11].includes(this.player.frame.name)) {
-          createSpeechBubble(this.player.x, this.player.y, 'What would you like to eat? Press: \n[1] to get Zürigschnätzlets (CH)\n[2] Rumpsteak (ARG) with Pommes or \n[3] vegetable casserolle (Bio, BE)');
+        if(this.physics.collide(this.foodgiver, this.player) && [9,10,11].includes(this.player.frame.name) && !this.game.summary.hasPickedMenu) {
+          isChoosingMenu = true;
+          createSpeechBubble(this.player.x, this.player.y, 'What would you like to eat? Press: \n[1] to get Zürigschnätzlets (CH)\n[2] Rumpsteak (ARG) with Pommes or \n[3] vegetable casserolle (Bio, BE)', this);
         }
       }
+    }
+
+    console.log(event.code);
+    if ((event.code === "Digit1" || event.code === "Digit2" || event.code === "Digit3") && isChoosingMenu) {
+      this.speaking.destroy();
+      this.content.destroy();
+      this.hint.destroy();
+      this.speaking = false;
+      createSpeechBubble(this.player.x, this.player.y, 'Delicious choice! Enjoy your meal!', this);
+
+      this.game.summary.hasPickedMenu = true;
+      this.game.summary.menuChoice = event.code;
+
+      isChoosingMenu = false;
     }
   });
 
