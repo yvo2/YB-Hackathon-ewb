@@ -1,5 +1,5 @@
 import createSpeechBubble from '../createSpeechBubble';
-import office from '../office';
+import summary from '../summary';
 
 export default function() {
   this.news = this.physics.add.sprite(575, 300, "news");
@@ -32,7 +32,7 @@ export default function() {
   this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {
-      this.scene.add('office', office, true)
+      this.scene.add('summary', summary, true)
       this.scene.remove('news')
     }
   });
