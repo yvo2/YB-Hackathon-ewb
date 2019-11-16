@@ -26,6 +26,6 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
-
+game.score = 0;
 // Add scene
 Window.game = game;

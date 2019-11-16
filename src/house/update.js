@@ -36,7 +36,7 @@ export default function() {
   this.player.body.velocity.normalize().scale(100);
 
   if(this.player.x > 1350) {
-    goToOffice(this)
+    goToOffice(this, 100)
   }
 }
 
