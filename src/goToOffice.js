@@ -4,6 +4,7 @@ export default function goToOffice(game, points) {
     if(!game.switchSceneDone) {
         game.game.score += points;
         if(!game.lightOn) {
+            game.summary.hasTurnedOffLight = true;
             game.game.score += 20;
         } 
 

@@ -123,7 +123,7 @@ export default function() {
   
   this.scene.bringToTop('UIScene');
 
-  /* this.input.keyboard.on('keydown', () => {
+  this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {
       if(this.speaking) {
@@ -131,25 +131,17 @@ export default function() {
         this.content.destroy();
         this.speaking = false;
       } else {
-        if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
+        /* if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
           this.bottle.destroy();
           createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
-        }
+        } */
   
-        if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {
-          if(this.light.frame.name == 1) {
-            this.light.setFrame(0);
-            this.lightOn = true;
-            createSpeechBubble(this.player.x, this.player.y, 'You turned the light on.', this);
-          } else {
-            this.light.setFrame(1);
-            this.lightOn = false;
-            createSpeechBubble(this.player.x, this.player.y, 'You turned the light off.', this);
-          }
+        if(this.physics.collide(this.foodgiver, this.player) && [9,10,11].includes(this.player.frame.name)) {
+          createSpeechBubble(this.player.x, this.player.y, 'What would you like to eat? Press: \n[1] to get Zürigschnätzlets (CH)\n[2] Rumpsteak (ARG) with Pommes or \n[3] vegetable casserolle (Bio, BE)');
         }
       }
     }
-  }); */
+  });
 
   // NPC
   this.angryman = this.add.sprite(1525, 385, "angry-man");

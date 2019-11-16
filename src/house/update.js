@@ -36,6 +36,7 @@ export default function() {
   this.player.body.velocity.normalize().scale(100);
 
   if(this.player.x > 1350) {
+    this.game.summary.wentByFoot = true;
     goToOffice(this, 100)
   }
 }

@@ -30,3 +30,11 @@ game.score = 0;
 game.objective = "None";
 // Add scene
 Window.game = game;
+
+game.summary = {
+  hasFilledWater: false,
+  hasTakenCar: false,
+  hasTakenBike: false,
+  wentByFoot: false,
+  hasTurnedOffLight: false
+};
