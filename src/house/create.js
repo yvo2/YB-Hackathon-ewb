@@ -145,6 +145,11 @@ export default function() {
           this.scene.add('office', office, true);
           this.scene.remove('house')
         }
+
+        if(this.physics.collide(this.velo, this.player)) {
+          this.scene.add('office', office, true);
+          this.scene.remove('house')
+        }
       }
     }
   });
