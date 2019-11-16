@@ -4,8 +4,8 @@ export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
     const map = this.make.tilemap({
       key: mapKey,
-      tileWidth: mapTileWidth || 15,
-      tileHeight: mapTileHeight || 15
+      tileWidth: mapTileWidth || 16,
+      tileHeight: mapTileHeight || 16
     });
     const tileset = map.addTilesetImage(tileKey,tileKey, tileWidth || 16, tileHeight || 16, tileMargin || 0, tileSpacing || 0);
     const layer = map.createStaticLayer(0, tileset, x || 0, y || 0);
@@ -13,84 +13,80 @@ export default function() {
     return { map, tileset, layer };
   };
 
+  // State
   this.speaking = false;
-  this.lightOn = true;
 
-  // Level 1 (house)
-  const house_house1 = createTileMap({
-    mapKey: "house-house1",
-    tileKey: "house1-tiles",
+  // Level 2 (office)
+  const office_house4 = createTileMap({
+    mapKey: "office-house4",
+    tileKey: "house4-tiles",
     tileWidth: 32,
     tileHeight: 32,
+    mapTileWidth: 16,
+    mapTileHeight: 16,
     y: -16
   });
-  const house_house3 = createTileMap({
-    mapKey: "house-house3",
+  const office_house3 = createTileMap({
+    mapKey: "office-house3",
     tileKey: "house3-tiles"
   });
-  const house_city = createTileMap({
-    mapKey: "house-city",
-    tileKey: "city-tiles",
-    tileSpacing: 1
+  const office_house2 = createTileMap({
+    mapKey: "office-house2",
+    tileKey: "house2-tiles",
+    tileWidth: 32,
+    tileHeight: 32,
+    /* x: -16,
+    y: -16 */
   });
-  const house_house2 = createTileMap({
-    mapKey: "house-house2",
+  const office_house2_layer2 = createTileMap({
+    mapKey: "office-house2-layer2",
     tileKey: "house2-tiles",
     tileWidth: 32,
     tileHeight: 32,
     x: -16,
     y: -16
   });
+  const office_office = createTileMap({
+    mapKey: "office-office",
+    tileKey: "office-tiles"
+  });
 
   // Player comes here to fit in
   this.player = this.physics.add.sprite(600, 550, "human");
 
-  const house_house2_above = createTileMap({
-    mapKey: "house-house2-above",
-    tileKey: "house2-tiles",
-    tileWidth: 32,
-    tileHeight: 32,
-    y: -16
-  });
-  const house_house3_above = createTileMap({
-    mapKey: "house-house3-above",
+  const office_house3_above = createTileMap({
+    mapKey: "office-house3-above",
     tileKey: "house3-tiles"
   });
-  const house_trees3 = createTileMap({
-    mapKey: "house-trees3",
-    tileKey: "house-trees-tiles"
+  const office_office2 = createTileMap({
+    mapKey: "office-office2",
+    tileKey: "office-tiles"
   });
-  const house_trees2 = createTileMap({
-    mapKey: "house-trees2",
-    tileKey: "house-trees-tiles"
-  });
-  const house_trees = createTileMap({
-    mapKey: "house-trees",
-    tileKey: "house-trees-tiles"
+  const office_office3 = createTileMap({
+    mapKey: "office-office3",
+    tileKey: "office-tiles"
   });
 
-  this.bottle = this.physics.add.sprite(860, 560, "bottle");
-  this.light = this.physics.add.sprite(640, 460, "light");
   this.player.setFrame(1);
 
   this.cursors = this.input.keyboard.createCursorKeys();
 
   // Collisions
-  const map_house_collision = this.make.tilemap({
-    key: 'house-collision',
+  const map_office_collision = this.make.tilemap({
+    key: 'office-collision',
     tileWidth: 16,
     tileHeight: 16
   });
-  const map_house_collision_layer = map_house_collision.createStaticLayer(0, "", -48);
-  map_house_collision.setCollisionBetween(0, 100);
-  this.physics.add.collider(this.player, map_house_collision_layer);
+  const map_office_collision_layer = map_office_collision.createStaticLayer(0, "", 0, 0);
+  map_office_collision.setCollisionBetween(0, 100);
+  this.physics.add.collider(this.player, map_office_collision_layer);
 
-  const debugGraphics = this.add.graphics().setAlpha(0.75);
-  map_house_collision.renderDebug(debugGraphics, {
+  /* const debugGraphics = this.add.graphics().setAlpha(0.75);
+  map_office_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-  });
+  }); */
 
   this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -110,7 +106,7 @@ export default function() {
   createAnim("up", [9,10,11,10]);
   createAnim("down", [0,1,2,1]);
 
-  this.input.keyboard.on('keydown', () => {
+  /* this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {
       if(this.speaking) {
@@ -136,5 +132,5 @@ export default function() {
         }
       }
     }
-  });
+  }); */
 }

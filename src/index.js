@@ -2,6 +2,7 @@ import 'phaser';
 
 import overlay from './overlay';
 import house from './house';
+import office from './office';
 
 // This is the entry point of your game.
 const scale = 0.6;
@@ -29,6 +30,7 @@ const game = new Phaser.Game(config);
 
 // Add scene
 game.scene.add('house', house, true);
+// game.scene.add('office', office, true);
 game.scene.bringToTop('overlay');
 
 Window.game = game;
