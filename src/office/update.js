@@ -1,6 +1,9 @@
 let foodGiverPosition = 1250;
 let foodGiverState = true; // true: -> false: <-
 
+let angryManPosition = 385;
+let angryManState = true; // true: top->down, false: down->top
+
 export default function() {
   // Stop any previous movement from the last frame
   this.player.body.setVelocity(0);
@@ -48,6 +51,28 @@ export default function() {
   }
   if (foodGiverPosition < 1250) {
     foodGiverState = true;
+  }
+
+  if (angryManState) {
+    angryManPosition += 2;
+    if (!this.angryman.anims.isPlaying) {
+      this.angryman.anims.play('down-angry');
+    }
+  } else {
+    angryManPosition -= 2;
+    if (!this.angryman.anims.isPlaying) {
+      this.angryman.anims.play('up-angry');
+    }
+  }
+  this.angryman.y = angryManPosition;
+
+  if (angryManPosition > 500) {
+    angryManState = false;
+    this.angryman.anims.play('up-angry');
+  }
+  if (angryManPosition < 385) {
+    angryManState = true;
+    this.angryman.anims.play('down-angry');
   }
 }
 

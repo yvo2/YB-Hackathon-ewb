@@ -16,6 +16,7 @@ import office_tiles from '../assets/tilesets/office.png';
 
 import human from '../assets/sprites/Human/SMB_Base_M_Tone08_cut.png';
 import food_giver from '../assets/sprites/Human/food_giver.png';
+import angry_man from '../assets/sprites/Human/angry_man.png';
 
 export default function() {
   this.load.tilemapCSV("office-collision", office_collision);
@@ -34,6 +35,13 @@ export default function() {
   this.load.image("office-tiles", office_tiles);
 
   this.load.spritesheet('human', human, {
+    frameWidth: 25,
+    frameHeight: 55,
+    startFrame: 0,
+    endFrame: 12
+  });
+
+  this.load.spritesheet('angry-man', angry_man, {
     frameWidth: 25,
     frameHeight: 55,
     startFrame: 0,

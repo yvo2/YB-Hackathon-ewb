@@ -79,7 +79,7 @@ export default function() {
     tileHeight: 16
   });
   const map_office_collision_layer = map_office_collision.createStaticLayer(0, "", 0, 0);
-  map_office_collision.setCollisionBetween(0, 100);
+  // map_office_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_office_collision_layer);
 
   /* const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -93,19 +93,22 @@ export default function() {
 
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
-  const createAnim = (key, frames) => {
+  const createAnim = (sprite, key, frames) => {
     this.anims.create({
       key,
-      frames: this.anims.generateFrameNumbers('human', { frames }),
+      frames: this.anims.generateFrameNumbers(sprite, { frames }),
       frameRate: 8,
       repeat: 0
-    })
+    });
   };
 
-  createAnim("left", [5,4,3,4]);
-  createAnim("right", [6,7,8,7]);
-  createAnim("up", [9,10,11,10]);
-  createAnim("down", [0,1,2,1]);
+  createAnim("human", "left", [5,4,3,4]);
+  createAnim("human", "right", [6,7,8,7]);
+  createAnim("human", "up", [9,10,11,10]);
+  createAnim("human", "down", [0,1,2,1]);
+
+  createAnim("angry-man", "up-angry", [9,10,11,10]);
+  createAnim("angry-man", "down-angry", [0,1,2,1]);
 
   
   this.scene.bringToTop('UIScene');
@@ -120,7 +123,7 @@ export default function() {
       } else {
         if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
           this.bottle.destroy();
-          createSpeechBubble(this.player.x, this.player.y, 'You took The bottle', this);
+          createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
         }
   
         if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {
@@ -139,4 +142,5 @@ export default function() {
   }); */
 
   // NPC
+  this.angryman = this.add.sprite(1525, 385, "angry-man");
 }
