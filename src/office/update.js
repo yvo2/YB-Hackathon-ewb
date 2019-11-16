@@ -74,5 +74,17 @@ export default function() {
     angryManState = true;
     this.angryman.anims.play('down-angry');
   }
+
+  if (!this.chef.anims.isPlaying) {
+    const rdm = Math.floor(Math.random() * 3)
+
+    if (rdm === 0) {
+      this.chef.anims.play('chef-left');
+    } else if (rdm === 1) {
+      this.chef.anims.play('chef-right');
+    } else {
+      this.chef.anims.play('chef-front');
+    }
+  }
 }
 

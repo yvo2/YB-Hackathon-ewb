@@ -110,6 +110,10 @@ export default function() {
   createAnim("angry-man", "up-angry", [9,10,11,10]);
   createAnim("angry-man", "down-angry", [0,1,2,1]);
 
+  createAnim("chef", "chef-left", [5,4,3,4]);
+  createAnim("chef", "chef-right", [6,7,8,7]);
+  createAnim("chef", "chef-front", [0,1,2,1]);
+
   
   this.scene.bringToTop('UIScene');
 
@@ -143,4 +147,5 @@ export default function() {
 
   // NPC
   this.angryman = this.add.sprite(1525, 385, "angry-man");
+  this.chef = this.add.sprite(930, 300, "chef");
 }
