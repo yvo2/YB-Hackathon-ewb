@@ -4,4 +4,7 @@ export default function() {
     volume: 0.25,
     loop: true
   });
+
+  
+  this.bell = this.physics.add.sprite(600, 600, "bell");
 }

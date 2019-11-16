@@ -1,4 +1,5 @@
 import createSpeechBubble from "../createSpeechBubble";
+import office from '../office';
 
 export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
@@ -45,7 +46,8 @@ export default function() {
   
   this.bottle = this.physics.add.sprite(860, 560, "bottle");
   this.light = this.physics.add.sprite(640, 460, "light");
-  this.car = this.physics.add.sprite(1000, 600, "car")
+  this.car = this.physics.add.sprite(1170, 600, "car")
+  //this.car.setImmovable(true);
 
   // Player comes here to fit in
   this.player = this.physics.add.sprite(600, 550, "human");
@@ -88,6 +90,7 @@ export default function() {
   const map_house_collision_layer = map_house_collision.createStaticLayer(0, "", -48);
   map_house_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_house_collision_layer);
+  //this.physics.add.collider(this.player, this.car);
 
   const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
@@ -137,6 +140,11 @@ export default function() {
             this.lightOn = false;
             createSpeechBubble(this.player.x, this.player.y, 'You turned the light off.', this);
           }
+        }
+
+        if(this.physics.collide(this.car, this.player)) {
+          this.scene.add('office', office, true);
+          this.scene.remove('house')
         }
       }
     }
