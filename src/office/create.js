@@ -66,6 +66,8 @@ export default function() {
     tileKey: "office-tiles"
   });
 
+  this.dispenser = this.physics.add.sprite(1055, 480, "dispenser");
+  
   // Player comes here to fit in
   this.player = this.physics.add.sprite(670, 385, "human");
 
@@ -74,9 +76,6 @@ export default function() {
     tileKey: "house3-tiles"
   });
 
-
-
-  this.dispenser = this.physics.add.sprite(1000, 480, "dispenser");
   this.player.setFrame(1);
 
   this.cursors = this.input.keyboard.createCursorKeys();
@@ -126,7 +125,7 @@ export default function() {
   
   this.scene.bringToTop('UIScene');
 
-  /* this.input.keyboard.on('keydown', () => {
+  this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {
       if(this.speaking) {
@@ -134,25 +133,14 @@ export default function() {
         this.content.destroy();
         this.speaking = false;
       } else {
-        if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
-          this.bottle.destroy();
-          createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
-        }
-  
-        if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {
-          if(this.light.frame.name == 1) {
-            this.light.setFrame(0);
-            this.lightOn = true;
-            createSpeechBubble(this.player.x, this.player.y, 'You turned the light on.', this);
-          } else {
-            this.light.setFrame(1);
-            this.lightOn = false;
-            createSpeechBubble(this.player.x, this.player.y, 'You turned the light off.', this);
-          }
+        if(this.physics.collide(this.dispenser, this.player) && [9,10,11].includes(this.player.frame.name)) {
+          createSpeechBubble(this.player.x, this.player.y, 'You refilled your bottle', this);
+          this.game.score += 40;
+          this.refil = true;
         }
       }
     }
-  }); */
+  });
 
   // NPC
   this.angryman = this.add.sprite(1525, 385, "angry-man");
