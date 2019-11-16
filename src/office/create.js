@@ -1,4 +1,5 @@
 import createSpeechBubble from '../createSpeechBubble';
+import news2 from '../'
 
 let isChoosingMenu = false;
 
@@ -168,6 +169,20 @@ export default function() {
       this.game.summary.menuChoice = event.code;
 
       isChoosingMenu = false;
+
+      if (event.code === "Digit1") {
+        this.game.score += 60;
+      }
+
+      if (event.code === "Digit2") {
+        this.game.score += 20;
+      }
+
+      if (event.code === "Digit3") {
+        this.game.score += 100;
+      }
+
+      this.game.scene.add(news2)
     }
   });
 
