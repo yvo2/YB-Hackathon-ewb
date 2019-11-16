@@ -20,10 +20,10 @@ export default function() {
   this.news.anims.play('anime');
   let newsText;
   if(this.game.score > 100) {
-    newsText = "Heute gab es seit 10 Jahren wieder den ersten Schneefall in der Schweiz, und zwar auf dem Matterhorn."
+    newsText = "Heute Wurden im Däu-Hölzli 26 Löwen-Babys geboren"
     this.physics.add.image(367, 162, "good")
   } else {
-    newsText = "Heute sind Amurleoparde offiziell ausgestorben. Sie sind an der extremen Hitze von bis zu 70 Grad von der Erde verschwunden."
+    newsText = "In der Wüste Dascht e Lut in Iran ist Heute eine neue Rekordtemparatur von 115 Grad gemessen worden."
     this.physics.add.image(367, 162, "bad")
   }
 
