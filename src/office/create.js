@@ -107,6 +107,9 @@ export default function() {
   createAnim("up", [9,10,11,10]);
   createAnim("down", [0,1,2,1]);
 
+  
+  this.scene.bringToTop('UIScene');
+
   /* this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {
@@ -117,7 +120,7 @@ export default function() {
       } else {
         if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
           this.bottle.destroy();
-          createSpeechBubble(this.player.x, this.player.y, 'You took The bottle', this);
+          createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
         }
   
         if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {

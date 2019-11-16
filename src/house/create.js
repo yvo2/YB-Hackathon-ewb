@@ -1,5 +1,5 @@
 import createSpeechBubble from "../createSpeechBubble";
-import office from '../office';
+import goToOffice from "../goToOffice";
 
 export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
@@ -47,7 +47,7 @@ export default function() {
   this.bottle = this.physics.add.sprite(860, 560, "bottle");
   this.light = this.physics.add.sprite(640, 460, "light");
   this.car = this.physics.add.sprite(1170, 600, "car")
-  //this.car.setImmovable(true);
+  this.velo = this.physics.add.sprite(600, 720, "velo")
 
   // Player comes here to fit in
   this.player = this.physics.add.sprite(600, 550, "human");
@@ -90,14 +90,13 @@ export default function() {
   const map_house_collision_layer = map_house_collision.createStaticLayer(0, "", -48);
   map_house_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_house_collision_layer);
-  //this.physics.add.collider(this.player, this.car);
 
-  const debugGraphics = this.add.graphics().setAlpha(0.75);
+  /* const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
     tileColor: null, // Color of non-colliding tiles
     collidingTileColor: new Phaser.Display.Color(243, 134, 48, 255), // Color of colliding tiles
     faceColor: new Phaser.Display.Color(40, 39, 37, 255) // Color of colliding face edges
-  });
+  }); */
 
   this.cursors = this.input.keyboard.createCursorKeys();
 
@@ -127,7 +126,7 @@ export default function() {
       } else {
         if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
           this.bottle.destroy();
-          createSpeechBubble(this.player.x, this.player.y, 'You took The bottle', this);
+          createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
         }
   
         if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {
@@ -143,8 +142,11 @@ export default function() {
         }
 
         if(this.physics.collide(this.car, this.player)) {
-          this.scene.add('office', office, true);
-          this.scene.remove('house')
+          goToOffice(this)
+        }
+
+        if(this.physics.collide(this.velo, this.player)) {
+          goToOffice(this)
         }
       }
     }

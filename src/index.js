@@ -16,7 +16,7 @@ const config = {
     autoCenter: Phaser.Scale.Center
   },
   type: Phaser.AUTO,
-  scene: [overlay],
+  scene:[overlay, house],
   physics: {
     default: "arcade",
     arcade: {
@@ -28,7 +28,4 @@ const config = {
 const game = new Phaser.Game(config);
 
 // Add scene
-game.scene.add('house', house, true);
-game.scene.bringToTop('overlay');
-
 Window.game = game;
