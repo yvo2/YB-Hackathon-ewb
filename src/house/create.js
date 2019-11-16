@@ -42,8 +42,14 @@ export default function() {
     y: -16
   });
 
+  
+  this.bottle = this.physics.add.sprite(860, 560, "bottle");
+  this.light = this.physics.add.sprite(640, 460, "light");
+  this.car = this.physics.add.sprite(1000, 600, "car")
+
   // Player comes here to fit in
   this.player = this.physics.add.sprite(600, 550, "human");
+  this.player.setFrame(1);
 
   const house_house2_above = createTileMap({
     mapKey: "house-house2-above",
@@ -69,9 +75,7 @@ export default function() {
     tileKey: "house-trees-tiles"
   });
 
-  this.bottle = this.physics.add.sprite(860, 560, "bottle");
-  this.light = this.physics.add.sprite(640, 460, "light");
-  this.player.setFrame(1);
+
 
   this.cursors = this.input.keyboard.createCursorKeys();
 

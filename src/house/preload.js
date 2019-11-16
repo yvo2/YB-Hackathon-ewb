@@ -21,7 +21,7 @@ import house_trees_tiles from '../assets/tilesets/trees.png';
 import human from '../assets/sprites/Human/SMB_Base_M_Tone08_cut.png';
 import bottle from '../assets/sprites/water.png';
 import light from '../assets/sprites/light.png';
-
+import car from '../assets/sprites/car.png';
 import bell from '../assets/icons/bell.png';
 
 export default function() {
@@ -68,6 +68,13 @@ export default function() {
   this.load.spritesheet('bell', bell, {
     frameWidth: 448,
     frameHeight: 512,
+    startFrame: 0,
+    endFrame: 2
+  });
+
+  this.load.spritesheet('car', car, {
+    frameWidth: 114,
+    frameHeight: 247,
     startFrame: 0,
     endFrame: 1
   });
