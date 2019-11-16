@@ -47,7 +47,7 @@ export default function() {
   this.bottle = this.physics.add.sprite(860, 560, "bottle");
   this.light = this.physics.add.sprite(640, 460, "light");
   this.car = this.physics.add.sprite(1170, 600, "car")
-  //this.car.setImmovable(true);
+  this.velo = this.physics.add.sprite(600, 720, "velo")
 
   // Player comes here to fit in
   this.player = this.physics.add.sprite(600, 550, "human");
@@ -90,7 +90,6 @@ export default function() {
   const map_house_collision_layer = map_house_collision.createStaticLayer(0, "", -48);
   map_house_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_house_collision_layer);
-  //this.physics.add.collider(this.player, this.car);
 
   const debugGraphics = this.add.graphics().setAlpha(0.75);
   map_house_collision.renderDebug(debugGraphics, {
