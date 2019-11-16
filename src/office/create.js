@@ -185,6 +185,11 @@ export default function() {
 
       this.scene.add('news2', news2, true);
       this.scene.remove('office');
+
+      Window.game.scene.scenes[0].pointB.setVisible(false)
+      Window.game.scene.scenes[0].questB.setVisible(false)
+      Window.game.scene.scenes[0].objectiveView.setVisible(false)
+      Window.game.scene.scenes[0].scoreView.setVisible(false)
     }
   });
 
