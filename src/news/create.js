@@ -27,13 +27,13 @@ export default function() {
     this.physics.add.image(100, 100, "bad")
   }
 
-  createSpeechBubble(575, 300, newsText, this)
+  createSpeechBubble(575, 300, newsText, this, true)
 
   this.input.keyboard.on('keydown', () => {
     //ACTION
     if(event.code === "Space") {
-      game.scene.add('office', office, true)
-      game.scene.remove('news')
+      this.scene.add('office', office, true)
+      this.scene.remove('news')
     }
   });
 }

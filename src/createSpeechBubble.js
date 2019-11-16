@@ -1,9 +1,14 @@
 //from https://phaser.io/examples/v3/view/game-objects/text/static/speech-bubble
-export default function createSpeechBubble (x, y, quote, game)
+export default function createSpeechBubble (x, y, quote, game, big)
 {
   let bubbleWidth = 300;
   let bubbleHeight = 100;
   let bubblePadding = 0;
+
+  if(big) {
+    bubbleWidth = 400;
+    bubbleHeight = 150;
+  }
 
   let bubble = game.add.graphics({ x: x -150, y: y + 100});
 
