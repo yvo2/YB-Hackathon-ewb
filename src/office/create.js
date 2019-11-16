@@ -48,6 +48,11 @@ export default function() {
     x: -16,
     y: -16
   });
+  const office_office4 = createTileMap({
+    mapKey: "office-office4",
+    tileKey: "office-tiles"
+  });
+  this.chef = this.add.sprite(930, 310, "chef");
   const office_office = createTileMap({
     mapKey: "office-office",
     tileKey: "office-tiles"
@@ -80,7 +85,7 @@ export default function() {
     tileHeight: 16
   });
   const map_office_collision_layer = map_office_collision.createStaticLayer(0, "", 0, 0);
-  // map_office_collision.setCollisionBetween(0, 100);
+  map_office_collision.setCollisionBetween(0, 100);
   this.physics.add.collider(this.player, map_office_collision_layer);
 
   /* const debugGraphics = this.add.graphics().setAlpha(0.75);
@@ -148,5 +153,4 @@ export default function() {
 
   // NPC
   this.angryman = this.add.sprite(1525, 385, "angry-man");
-  this.chef = this.add.sprite(930, 300, "chef");
 }
