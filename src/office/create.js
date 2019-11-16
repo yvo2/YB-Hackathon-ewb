@@ -131,14 +131,22 @@ export default function() {
       if(this.speaking) {
         this.speaking.destroy();
         this.content.destroy();
+        this.hint.destroy();
         this.speaking = false;
       } else {
         if(this.physics.collide(this.dispenser, this.player) && [9,10,11].includes(this.player.frame.name)) {
-          createSpeechBubble(this.player.x, this.player.y, 'You refilled your bottle', this);
-          this.game.score += 40;
-          this.refil = true;
+          if(this.game.summary.hasBottle) {
+            if(this.refill) {
+              createSpeechBubble(this.player.x, this.player.y, 'Your bottle is already filled', this);
+            } else {
+              createSpeechBubble(this.player.x, this.player.y, 'You refilled your bottle', this);
+              this.game.score += 40;
+              this.refill = true;
+            }
+          } else {
+            createSpeechBubble(this.player.x, this.player.y, 'You don\'t have a bottle to refill', this);
+          }
         }
-  
         if(this.physics.collide(this.foodgiver, this.player) && [9,10,11].includes(this.player.frame.name)) {
           createSpeechBubble(this.player.x, this.player.y, 'What would you like to eat? Press: \n[1] to get Zürigschnätzlets (CH)\n[2] Rumpsteak (ARG) with Pommes or \n[3] vegetable casserolle (Bio, BE)');
         }

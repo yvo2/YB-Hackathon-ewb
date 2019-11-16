@@ -36,5 +36,6 @@ game.summary = {
   hasTakenCar: false,
   hasTakenBike: false,
   wentByFoot: false,
-  hasTurnedOffLight: false
+  hasTurnedOffLight: false,
+  hasBottle: false
 };
