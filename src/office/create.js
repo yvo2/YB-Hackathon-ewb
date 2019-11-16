@@ -93,19 +93,22 @@ export default function() {
 
   this.cameras.main.startFollow(this.player, false, 0.05, 0.05);
 
-  const createAnim = (key, frames) => {
+  const createAnim = (sprite, key, frames) => {
     this.anims.create({
       key,
-      frames: this.anims.generateFrameNumbers('human', { frames }),
+      frames: this.anims.generateFrameNumbers(sprite, { frames }),
       frameRate: 8,
       repeat: 0
     });
   };
 
-  createAnim("left", [5,4,3,4]);
-  createAnim("right", [6,7,8,7]);
-  createAnim("up", [9,10,11,10]);
-  createAnim("down", [0,1,2,1]);
+  createAnim("human", "left", [5,4,3,4]);
+  createAnim("human", "right", [6,7,8,7]);
+  createAnim("human", "up", [9,10,11,10]);
+  createAnim("human", "down", [0,1,2,1]);
+
+  createAnim("angry-man", "up-angry", [9,10,11,10]);
+  createAnim("angry-man", "down-angry", [0,1,2,1]);
 
   
   this.scene.bringToTop('UIScene');
