@@ -2,8 +2,7 @@ import office from './office';
 
 export default function goToOffice(game, points) {
     if(!game.switchSceneDone) {
-        console.log(game.score)
-        game.score += points;
+        game.game.score += points;
         if(!game.lightOn) {
             game.game.score += 20;
         } 

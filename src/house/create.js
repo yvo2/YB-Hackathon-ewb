@@ -127,6 +127,7 @@ export default function() {
         if(this.physics.collide(this.bottle, this.player) && [9,10,11].includes(this.player.frame.name)) {
           this.bottle.destroy();
           createSpeechBubble(this.player.x, this.player.y, 'You took the bottle', this);
+          this.game.score += 20;
         }
   
         if(this.physics.collide(this.light, this.player) && [9,10,11].includes(this.player.frame.name)) {
