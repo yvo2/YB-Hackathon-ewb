@@ -1,4 +1,5 @@
 import createSpeechBubble from "../createSpeechBubble";
+import office from '../office';
 
 export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
@@ -139,6 +140,11 @@ export default function() {
             this.lightOn = false;
             createSpeechBubble(this.player.x, this.player.y, 'You turned the light off.', this);
           }
+        }
+
+        if(this.physics.collide(this.car, this.player)) {
+          this.scene.add('office', office, true);
+          this.scene.remove('house')
         }
       }
     }
