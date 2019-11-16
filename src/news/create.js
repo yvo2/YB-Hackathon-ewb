@@ -1,5 +1,6 @@
 import createSpeechBubble from '../createSpeechBubble';
 import office from '../office';
+import overlay from '../overlay';
 
 export default function() {
   this.news = this.physics.add.sprite(575, 300, "news");
@@ -20,10 +21,10 @@ export default function() {
   this.news.anims.play('anime');
   let newsText;
   if(this.game.score > 100) {
-    newsText = "Heute gab es seit 10 Jahren wieder den ersten Schneefall in der Schweiz, und zwar auf dem Matterhorn."
+    newsText = "Today there was the first snowfall in Switzerland since 10 years, on the Matterhorn."
     this.physics.add.image(367, 162, "good")
   } else {
-    newsText = "Heute sind Amurleoparde offiziell ausgestorben. Sie sind an der extremen Hitze von bis zu 70 Grad von der Erde verschwunden."
+    newsText = "Today amurleopards are officially extinct. They have disappeared from the earth in the extreme heat of up to 70 degrees."
     this.physics.add.image(367, 162, "bad")
   }
 

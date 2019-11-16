@@ -20,10 +20,10 @@ export default function() {
   this.news.anims.play('anime');
   let newsText;
   if(this.game.score > 100) {
-    newsText = "Heute Wurden im Däu-Hölzli 26 Löwen-Babys geboren"
+    newsText = "Today 26 lion babies were born in Däu-Hölzli"
     this.physics.add.image(367, 162, "good")
   } else {
-    newsText = "In der Wüste Dascht e Lut in Iran ist Heute eine neue Rekordtemparatur von 115 Grad gemessen worden."
+    newsText = "Today a new record temperature of 115 degrees was measured in the Dascht e Lut desert in Iran."
     this.physics.add.image(367, 162, "bad")
   }
 
