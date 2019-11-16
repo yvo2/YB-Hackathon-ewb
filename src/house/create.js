@@ -1,5 +1,5 @@
 import createSpeechBubble from "../createSpeechBubble";
-import office from '../office';
+import goToOffice from "../goToOffice";
 
 export default function() {
   const createTileMap = ({ mapKey, tileKey, tileWidth, tileHeight, tileMargin, tileSpacing, mapTileWidth, mapTileHeight, x, y }) => {
@@ -142,13 +142,11 @@ export default function() {
         }
 
         if(this.physics.collide(this.car, this.player)) {
-          this.scene.add('office', office, true);
-          this.scene.remove('house')
+          goToOffice(this)
         }
 
         if(this.physics.collide(this.velo, this.player)) {
-          this.scene.add('office', office, true);
-          this.scene.remove('house')
+          goToOffice(this)
         }
       }
     }

@@ -1,3 +1,5 @@
+import goToOffice from "../goToOffice";
+
 export default function() {
   // Stop any previous movement from the last frame
   this.player.body.setVelocity(0);
@@ -32,5 +34,9 @@ export default function() {
 
   // Normalize and scale the velocity so that player can't move faster along a diagonal
   this.player.body.velocity.normalize().scale(100);
+
+  if(this.player.x > 1350) {
+    goToOffice(this)
+  }
 }
 
