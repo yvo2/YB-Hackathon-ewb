@@ -1,6 +1,6 @@
 import news from './news';
 
-export default function goToOffice(game, points) {
+export default function goToOffice(game, points, index) {
     if(!game.switchSceneDone) {
         game.game.score += points;
         if(!game.lightOn) {
@@ -12,9 +12,9 @@ export default function goToOffice(game, points) {
         game.scene.add('news', news, true)
         game.scene.remove('house')
 
-        Window.game.scene.scenes[0].pointB.setVisible(false)
-        Window.game.scene.scenes[0].questB.setVisible(false)
-        Window.game.scene.scenes[0].objectiveView.setVisible(false)
-        Window.game.scene.scenes[0].scoreView.setVisible(false)
+        Window.game.scene.scenes[index].pointB.setVisible(false)
+        Window.game.scene.scenes[index].questB.setVisible(false)
+        Window.game.scene.scenes[index].objectiveView.setVisible(false)
+        Window.game.scene.scenes[index].scoreView.setVisible(false)
     } 
 }

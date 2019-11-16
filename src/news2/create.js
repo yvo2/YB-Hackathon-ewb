@@ -20,10 +20,10 @@ export default function() {
   this.news.anims.play('anime');
   let newsText;
   if(this.game.score > 100) {
-    newsText = "Today 26 lion babies were born in Däu-Hölzli"
+    newsText = "With your thoughtful behaviour:\nToday 26 lion babies were born in Däu-Hölzli"
     this.physics.add.image(367, 162, "good")
   } else {
-    newsText = "Today a new record temperature of 115 degrees was measured in the Dascht e Lut desert in Iran."
+    newsText = "You are a reason for todays new record temperature of 115 degrees, which was measured in the Dascht e Lut desert in Iran."
     this.physics.add.image(367, 162, "bad")
   }
 

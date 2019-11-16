@@ -146,12 +146,12 @@ export default function() {
         }
 
         if(this.physics.collide(this.car, this.player)) {
-          goToOffice(this, 20);
+          goToOffice(this, 20, 0);
           this.game.summary.hasTakenCar = true;
         }
 
         if(this.physics.collide(this.velo, this.player)) {
-          goToOffice(this, 60);
+          goToOffice(this, 60, 0);
           this.game.summary.hasTakenBike = true;
         }
       }

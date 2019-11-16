@@ -21,10 +21,10 @@ export default function() {
   this.news.anims.play('anime');
   let newsText;
   if(this.game.score >= 100) {
-    newsText = "Today there was the first snowfall in Switzerland since 10 years, on the Matterhorn."
+    newsText = "Because of your actions:\nToday there was the first snowfall in Switzerland since 10 years, on the Matterhorn."
     this.physics.add.image(367, 162, "good")
   } else {
-    newsText = "Today amurleopards are officially extinct. They have disappeared from the earth in the extreme heat of up to 70 degrees."
+    newsText = "Because of your ecological actions:\nToday amurleopards are officially extinct. They have disappeared from the earth in the extreme heat of up to 70 degrees."
     this.physics.add.image(367, 162, "bad")
   }
 

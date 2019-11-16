@@ -37,7 +37,7 @@ export default function() {
 
   if(this.player.x > 1350) {
     this.game.summary.wentByFoot = true;
-    goToOffice(this, 100)
+    goToOffice(this, 100, 1)
   }
 }
 
