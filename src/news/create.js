@@ -20,7 +20,7 @@ export default function() {
 
   this.news.anims.play('anime');
   let newsText;
-  if(this.game.score > 100) {
+  if(this.game.score >= 100) {
     newsText = "Today there was the first snowfall in Switzerland since 10 years, on the Matterhorn."
     this.physics.add.image(367, 162, "good")
   } else {
