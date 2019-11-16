@@ -15,6 +15,7 @@ import house4_tiles from '../assets/tilesets/house4.png';
 import office_tiles from '../assets/tilesets/office.png';
 
 import human from '../assets/sprites/Human/SMB_Base_M_Tone08_cut.png';
+import food_giver from '../assets/sprites/Human/food_giver.png';
 
 export default function() {
   this.load.tilemapCSV("office-collision", office_collision);

@@ -34,9 +34,7 @@ export default function() {
     mapKey: "office-house2",
     tileKey: "house2-tiles",
     tileWidth: 32,
-    tileHeight: 32,
-    /* x: -16,
-    y: -16 */
+    tileHeight: 32
   });
   const office_house2_layer2 = createTileMap({
     mapKey: "office-house2-layer2",
@@ -50,14 +48,6 @@ export default function() {
     mapKey: "office-office",
     tileKey: "office-tiles"
   });
-
-  // Player comes here to fit in
-  this.player = this.physics.add.sprite(600, 550, "human");
-
-  const office_house3_above = createTileMap({
-    mapKey: "office-house3-above",
-    tileKey: "house3-tiles"
-  });
   const office_office2 = createTileMap({
     mapKey: "office-office2",
     tileKey: "office-tiles"
@@ -65,6 +55,14 @@ export default function() {
   const office_office3 = createTileMap({
     mapKey: "office-office3",
     tileKey: "office-tiles"
+  });
+
+  // Player comes here to fit in
+  this.player = this.physics.add.sprite(670, 385, "human");
+
+  const office_house3_above = createTileMap({
+    mapKey: "office-house3-above",
+    tileKey: "house3-tiles"
   });
 
   this.player.setFrame(1);
